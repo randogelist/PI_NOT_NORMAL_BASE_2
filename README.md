@@ -1,5 +1,7 @@
 # Pi non-normality in base 2 — the C_t route
 
+[![Lean C_t verification](https://github.com/randogelist/PI_NOT_NORMAL_BASE_2/actions/workflows/lean.yml/badge.svg?branch=main)](https://github.com/randogelist/PI_NOT_NORMAL_BASE_2/actions/workflows/lean.yml)
+
 This repository consolidates the recovered ANCHOPI and PI_DYADIC_CT Lean research branches. Its purpose is to verify the progress toward proving that π is not normal in base 2, while preserving the original analytic C_t route and every unresolved hypothesis.
 
 **This repository does not prove that π is non-normal.** The analytic coefficient is proved; a sufficient estimate about the actual binary digits of π remains open. A successful build certifies the precise conditional theorems in the sources.

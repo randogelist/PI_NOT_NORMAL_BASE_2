@@ -16,3 +16,4 @@ branches/**/logs/
 build/
 logs/
 
+branches/verification.json

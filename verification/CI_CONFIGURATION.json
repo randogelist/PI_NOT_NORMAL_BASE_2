@@ -1,5 +1,5 @@
 {
-  "status": "CONFIGURED_NOT_EXECUTED_ON_GITHUB",
+  "status": "CONFIGURATION_ONLY_SEE_ACTIONS_RUNS",
   "workflow": ".github/workflows/lean.yml",
   "runner": "ubuntu-24.04",
   "lean_version": "4.33.0",
@@ -8,10 +8,16 @@
   "release_digest_source": "https://api.github.com/repos/leanprover/lean4/releases/tags/v4.33.0",
   "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
   "verification_command": "python3 scripts/verify.py --mathlib .lake/packages/mathlib",
-  "axiom_policy": ["propext", "Classical.choice", "Quot.sound"],
+  "axiom_policy": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
   "action_pins_verified_via_official_github_refs": {
     "actions/checkout@v4.2.2": "11bd71901bbe5b1630ceea73d27597364c9af683",
     "actions/cache@v4.2.3": "5a3ec84eff668545956fd18022155c47e93e2684",
     "actions/upload-artifact@v4.6.2": "ea165f8d65b6e75b540449e92b4886f43607fa02"
-  }
+  },
+  "authoritative_repository": "randogelist/PI_NOT_NORMAL_BASE_2",
+  "verification_policy": "CI_ONLY"
 }
