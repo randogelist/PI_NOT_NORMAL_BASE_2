@@ -1,0 +1,25 @@
+{
+  "branch_identity": "ANCHOPI_PART_A_CT_LEAN_v0_1_5_FIX4_FASTSTART",
+  "archive": "ANCHOPI_PART_A_CT_LEAN_v0_1_5_FIX4_FASTSTART.zip",
+  "archive_sha256": "d0e4e6217175c219a344931f4ff657e0ae50e00939da7f70e51f539e13200e28",
+  "files": [
+    {
+      "path": "Main.lean",
+      "original_sha256": "df9a4b8e236d070c82d3fadfb574e7d53c8417b17d020788a687ce8b3491b87d",
+      "changes": [],
+      "current_sha256": "df9a4b8e236d070c82d3fadfb574e7d53c8417b17d020788a687ce8b3491b87d"
+    },
+    {
+      "path": "PartA/CtAnalytic.lean",
+      "original_sha256": "173eb35d5ec4f848de00afcc9d4646648fe13a394c29c9e01651ef067e6d331f",
+      "changes": [],
+      "current_sha256": "173eb35d5ec4f848de00afcc9d4646648fe13a394c29c9e01651ef067e6d331f"
+    },
+    {
+      "path": "PartA/PiRadixReadout.lean",
+      "original_sha256": "ce857f22ee3d400ef29c54aeecfa24f2c5058ab27006c6171f8994157bea8ce7",
+      "changes": [],
+      "current_sha256": "ce857f22ee3d400ef29c54aeecfa24f2c5058ab27006c6171f8994157bea8ce7"
+    }
+  ]
+}

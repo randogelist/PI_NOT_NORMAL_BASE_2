@@ -1,0 +1,18 @@
+--- original/PiCt/AnalyticWordProduct.lean
++++ PiCt/AnalyticWordProduct.lean
+@@ -1,5 +1,6 @@
+ import PiCt.LogCore
+ import Mathlib.Analysis.SpecificLimits.Basic
++import Mathlib.Analysis.Asymptotics.SpecificAsymptotics
+ 
+ /-!
+ Products of the analytic split factors. These are an explicitly defined
+--- original/PiCt/LogCore.lean
++++ PiCt/LogCore.lean
+@@ -1,4 +1,5 @@
+-import Mathlib
++import Mathlib.Analysis.SpecialFunctions.Log.Basic
++import Mathlib.Tactic
+ 
+ /-!
+ Exact logarithmic split and its rational bounds.

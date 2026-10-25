@@ -1,0 +1,77 @@
+--- original/ANCHOPI_CT_EXACT_OBSTRUCTION_LEAN_v0_2_0/AWPIWordAnchor/CW00_Limits.lean
++++ branches/exact-obstruction/AWPIWordAnchor/CW00_Limits.lean
+@@ -1,4 +1,7 @@
+-import Mathlib
++import Mathlib.Analysis.SpecialFunctions.Log.Basic
++import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
++import Mathlib.Algebra.Order.Floor.Ring
++import Mathlib.Tactic
+ 
+ namespace AWPIWordAnchor
+ 
+--- original/ANCHOPI_FRONTIER_EXPLICIT_LEAN_v0_4_0_FASTSTART/AWPI/VanishingCoefficientsAnchor.lean
++++ branches/explicit-frontier/AWPI/VanishingCoefficientsAnchor.lean
+@@ -1,4 +1,7 @@
+-import Mathlib
++import Mathlib.Analysis.SpecialFunctions.Log.Basic
++import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
++import Mathlib.Algebra.Order.Floor.Ring
++import Mathlib.Tactic
+ 
+ namespace AWPI.VanishingCoefficientsAnchor
+ 
+--- original/ANCHOPI_FRONTIER_EXPLICIT_LEAN_v0_4_0_FASTSTART/PartB/ConcreteFrontier.lean
++++ branches/explicit-frontier/PartB/ConcreteFrontier.lean
+@@ -1,4 +1,7 @@
+-import Mathlib
++import Mathlib.Analysis.SpecialFunctions.Log.Basic
++import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
++import Mathlib.Algebra.Order.Floor.Ring
++import Mathlib.Tactic
+ import PartA.CtMagnitude
+ import AWPI.VanishingCoefficientsAnchor
+ 
+--- original/ANCHOPI_PI_NONNORMAL_FULL_CLOSURE_LEAN_v0_8_0_FIX2_FASTSTART/AWPIWordAnchor/CW00_Limits.lean
++++ branches/full-closure/AWPIWordAnchor/CW00_Limits.lean
+@@ -1,4 +1,7 @@
+-import Mathlib
++import Mathlib.Analysis.SpecialFunctions.Log.Basic
++import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
++import Mathlib.Algebra.Order.Floor.Ring
++import Mathlib.Tactic
+ 
+ namespace AWPIWordAnchor
+ 
+--- original/ANCHOPI_RECONSTRUCTED_CHAIN_LEAN_v0_3_1_FIX1_FASTSTART/AWPI/VanishingCoefficientsAnchor.lean
++++ branches/reconstructed/AWPI/VanishingCoefficientsAnchor.lean
+@@ -1,4 +1,7 @@
+-import Mathlib
++import Mathlib.Analysis.SpecialFunctions.Log.Basic
++import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
++import Mathlib.Algebra.Order.Floor.Ring
++import Mathlib.Tactic
+ 
+ namespace AWPI.VanishingCoefficientsAnchor
+ 
+--- original/ANCHOPI_RECONSTRUCTED_CHAIN_LEAN_v0_3_1_FIX1_FASTSTART/PartB/ExactCancellationClosure.lean
++++ branches/reconstructed/PartB/ExactCancellationClosure.lean
+@@ -1,4 +1,7 @@
+-import Mathlib
++import Mathlib.Analysis.SpecialFunctions.Log.Basic
++import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
++import Mathlib.Algebra.Order.Floor.Ring
++import Mathlib.Tactic
+ import PartA.PiRadixReadout
+ import PartA.CtAnalytic
+ import AWPI.VanishingCoefficientsAnchor
+--- original/ANCHOPI_CT_SINGLE_HYPOTHESIS_LEAN_v0_1_2_FIX2/AWPIWordAnchor/CW00_Limits.lean
++++ branches/single-hypothesis/AWPIWordAnchor/CW00_Limits.lean
+@@ -1,4 +1,7 @@
+-import Mathlib
++import Mathlib.Analysis.SpecialFunctions.Log.Basic
++import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
++import Mathlib.Algebra.Order.Floor.Ring
++import Mathlib.Tactic
+ 
+ namespace AWPIWordAnchor
+ 

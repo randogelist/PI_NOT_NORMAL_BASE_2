@@ -1,0 +1,45 @@
+{
+  "branch_identity": "ANCHOPI_CT_EXACT_OBSTRUCTION_LEAN_v0_2_0",
+  "archive": "ANCHOPI_CT_EXACT_OBSTRUCTION_LEAN_v0_2_0.zip",
+  "archive_sha256": "c3b814afba6f8745d9ac6946bb59c659ce523ac2298ade5f11337bb4ac60d3e4",
+  "files": [
+    {
+      "path": "AWPIWordAnchor/CW00_Limits.lean",
+      "original_sha256": "46dfaabdd9615b29c5d1333f2c7570e1c3e6de8ee0ee6eeb59ac00ce547184f9",
+      "changes": [
+        "Replaced broad import Mathlib with explicit log, trigonometric, floor and tactic imports to reduce CI memory; all theorem statements and proof bodies unchanged."
+      ],
+      "current_sha256": "fd782ae50e1f2bcdf3de9d5802b4b5a4f8cdf28b912e7c5affcb81be1dc6ad93"
+    },
+    {
+      "path": "AWPIWordAnchor/CW01_Words.lean",
+      "original_sha256": "94acf937703ec12779800aff18f38645601eb2783fb16a09e2025608205fb85b",
+      "changes": [],
+      "current_sha256": "94acf937703ec12779800aff18f38645601eb2783fb16a09e2025608205fb85b"
+    },
+    {
+      "path": "AWPIWordAnchor/CW02_FiniteExperiment.lean",
+      "original_sha256": "ffc89900ea77d997808e40f254b34d6a4e563ee04dc5063505a8a6a4d8da4435",
+      "changes": [],
+      "current_sha256": "ffc89900ea77d997808e40f254b34d6a4e563ee04dc5063505a8a6a4d8da4435"
+    },
+    {
+      "path": "ActualPi/PiReadout.lean",
+      "original_sha256": "367391984e0a10345e82c433bf6ed37df2e96412f1b4159aba7ad9f5afb384a1",
+      "changes": [],
+      "current_sha256": "367391984e0a10345e82c433bf6ed37df2e96412f1b4159aba7ad9f5afb384a1"
+    },
+    {
+      "path": "Closure/ConditionalCT.lean",
+      "original_sha256": "599054acc0ae98362dc4a2ba37ceecf9d02cf4646b4f2b484c7005cce51ad714",
+      "changes": [],
+      "current_sha256": "599054acc0ae98362dc4a2ba37ceecf9d02cf4646b4f2b484c7005cce51ad714"
+    },
+    {
+      "path": "Main.lean",
+      "original_sha256": "4e85c427035cb5babd04b1ea96f19da9fa2574e4cee7966b8b697e65cde04a25",
+      "changes": [],
+      "current_sha256": "4e85c427035cb5babd04b1ea96f19da9fa2574e4cee7966b8b697e65cde04a25"
+    }
+  ]
+}

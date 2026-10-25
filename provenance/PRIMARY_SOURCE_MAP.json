@@ -1,0 +1,229 @@
+{
+  "source_archive": "PI_DYADIC_CT_v0_7_0.zip",
+  "files": [
+    {
+      "archive_path": "Main.lean",
+      "repository_path": "PiCtAudit.lean",
+      "original_sha256": "e355c8c41d55d19e9e784db13b7fcf38aa7ce0919cbfc9b176139532e648b800",
+      "current_sha256": "e355c8c41d55d19e9e784db13b7fcf38aa7ce0919cbfc9b176139532e648b800",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/AlternatingExcursions.lean",
+      "repository_path": "PiCt/AlternatingExcursions.lean",
+      "original_sha256": "b17f4ba90a039799ebdeca1c15adafe68e82e1e9f99a01019659b4398c16ac40",
+      "current_sha256": "b17f4ba90a039799ebdeca1c15adafe68e82e1e9f99a01019659b4398c16ac40",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/AlternatingFrequency.lean",
+      "repository_path": "PiCt/AlternatingFrequency.lean",
+      "original_sha256": "bd79220ea14e04a51909d272259232285f47336cc6312f30bfd2e4e2201f367d",
+      "current_sha256": "bd79220ea14e04a51909d272259232285f47336cc6312f30bfd2e4e2201f367d",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/AlternatingTailClosure.lean",
+      "repository_path": "PiCt/AlternatingTailClosure.lean",
+      "original_sha256": "a6f17b131e2347dc6880893a234e04664d39cb6267c476fa202ee2b958f9324f",
+      "current_sha256": "a6f17b131e2347dc6880893a234e04664d39cb6267c476fa202ee2b958f9324f",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/AnalyticDrift.lean",
+      "repository_path": "PiCt/AnalyticDrift.lean",
+      "original_sha256": "5ee810b2526fca883fd803ff39af8a79f381b3d26d885e69f86225a9b65d2e79",
+      "current_sha256": "5ee810b2526fca883fd803ff39af8a79f381b3d26d885e69f86225a9b65d2e79",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/AnalyticParityClosure.lean",
+      "repository_path": "PiCt/AnalyticParityClosure.lean",
+      "original_sha256": "32c4dd84ccecb9743a5a5b7caba3966bcb6705220faaf956a348e3fe449afede",
+      "current_sha256": "32c4dd84ccecb9743a5a5b7caba3966bcb6705220faaf956a348e3fe449afede",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/AnalyticWordProduct.lean",
+      "repository_path": "PiCt/AnalyticWordProduct.lean",
+      "original_sha256": "39af9e92425899a2c5628d85c0ea832337a4417cad5067a466e4e4ff155ad4ce",
+      "current_sha256": "79dae6950d14abb709d8605e9016877583629e0ecc4f0c6f6b31da24fe28048f",
+      "changed": true,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/BinaryWords.lean",
+      "repository_path": "PiCt/BinaryWords.lean",
+      "original_sha256": "9d818ff8d04598bcbd27d0312699003b9669edaa6e8b4bb89749bd75f5b67356",
+      "current_sha256": "9d818ff8d04598bcbd27d0312699003b9669edaa6e8b4bb89749bd75f5b67356",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/CoefficientAccumulation.lean",
+      "repository_path": "PiCt/CoefficientAccumulation.lean",
+      "original_sha256": "8cc9a38e7083f1f063885e829319bfa65683879e43607c5bd64b01e8846b0818",
+      "current_sha256": "8cc9a38e7083f1f063885e829319bfa65683879e43607c5bd64b01e8846b0818",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/Drawdown.lean",
+      "repository_path": "PiCt/Drawdown.lean",
+      "original_sha256": "b6c493fc63357e836938c13ff7bedc743e5e6e2f58915ea854cf6064ef57f587",
+      "current_sha256": "b6c493fc63357e836938c13ff7bedc743e5e6e2f58915ea854cf6064ef57f587",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/Dyadic.lean",
+      "repository_path": "PiCt/Dyadic.lean",
+      "original_sha256": "93c3fb4ed601b8a138bf690219af54698c7ffd4f082d1d800ad398b00405c17a",
+      "current_sha256": "93c3fb4ed601b8a138bf690219af54698c7ffd4f082d1d800ad398b00405c17a",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/DyadicParity.lean",
+      "repository_path": "PiCt/DyadicParity.lean",
+      "original_sha256": "3bc878c59164e592166a3f7cc18655d28a758a9dbc06fc31eeb2c7cdcbd8aba0",
+      "current_sha256": "3bc878c59164e592166a3f7cc18655d28a758a9dbc06fc31eeb2c7cdcbd8aba0",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/Endpoints.lean",
+      "repository_path": "PiCt/Endpoints.lean",
+      "original_sha256": "afbc529de4eb6343a6a4b4ba4448bc1a7f8dfab5520f797d6bc28a7fabdcff32",
+      "current_sha256": "afbc529de4eb6343a6a4b4ba4448bc1a7f8dfab5520f797d6bc28a7fabdcff32",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/FloorDigits.lean",
+      "repository_path": "PiCt/FloorDigits.lean",
+      "original_sha256": "3e1e1d06be7696883e35e6cdd8a78de7e174869bde4525de9668e874d7902fb7",
+      "current_sha256": "3e1e1d06be7696883e35e6cdd8a78de7e174869bde4525de9668e874d7902fb7",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/Instance.lean",
+      "repository_path": "PiCt/Instance.lean",
+      "original_sha256": "aa8469db7f4123f568c393508b03ea1832d06094e5ee52a5f11ce928e1ad3612",
+      "current_sha256": "aa8469db7f4123f568c393508b03ea1832d06094e5ee52a5f11ce928e1ad3612",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/LogCore.lean",
+      "repository_path": "PiCt/LogCore.lean",
+      "original_sha256": "f1b28df3069ced69b216f055a46be4fa558faa79a8b3c5dd61dda079bcf70dbc",
+      "current_sha256": "6ec50e4f0a637588cb744868217853adf6ed9c9da9383c5ef7f45983991fbdd9",
+      "changed": true,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/MovingOffset.lean",
+      "repository_path": "PiCt/MovingOffset.lean",
+      "original_sha256": "b0f97f505de7cc91329ec5a068dc1cea70a120625439ffa6dae6af62e9eeaf9e",
+      "current_sha256": "b0f97f505de7cc91329ec5a068dc1cea70a120625439ffa6dae6af62e9eeaf9e",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/OrbitPotential.lean",
+      "repository_path": "PiCt/OrbitPotential.lean",
+      "original_sha256": "0df4569e60cb75f04a712791634df0688a141862e10953f8513c2d6227e11f4c",
+      "current_sha256": "0df4569e60cb75f04a712791634df0688a141862e10953f8513c2d6227e11f4c",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/ParityClosure.lean",
+      "repository_path": "PiCt/ParityClosure.lean",
+      "original_sha256": "7dd45bebddbf92d88ac986b2e89214c04404fa4de451d047952ac85abe30b55c",
+      "current_sha256": "7dd45bebddbf92d88ac986b2e89214c04404fa4de451d047952ac85abe30b55c",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/ParityCounts.lean",
+      "repository_path": "PiCt/ParityCounts.lean",
+      "original_sha256": "ecd4adacd03ab49fb5290094b2e57379702f5a2ba44139913c6c993e40ad9a2d",
+      "current_sha256": "ecd4adacd03ab49fb5290094b2e57379702f5a2ba44139913c6c993e40ad9a2d",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/ParityDrift.lean",
+      "repository_path": "PiCt/ParityDrift.lean",
+      "original_sha256": "b3374e842817a4cad25261689abf4bc7bde52fba11092dc9a1a814f4a2d27db1",
+      "current_sha256": "b3374e842817a4cad25261689abf4bc7bde52fba11092dc9a1a814f4a2d27db1",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/ReadoutInvariant.lean",
+      "repository_path": "PiCt/ReadoutInvariant.lean",
+      "original_sha256": "dbdc96a63c6e409f35cc9b1b3916f1e72da0a1ed24f399379643cf392bbafe52",
+      "current_sha256": "dbdc96a63c6e409f35cc9b1b3916f1e72da0a1ed24f399379643cf392bbafe52",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/ReflectedWalk.lean",
+      "repository_path": "PiCt/ReflectedWalk.lean",
+      "original_sha256": "667cee9441c614a73f7e67e15f70d421ef8a985d6e889d1dac02fa9f1b27b136",
+      "current_sha256": "667cee9441c614a73f7e67e15f70d421ef8a985d6e889d1dac02fa9f1b27b136",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/Representative.lean",
+      "repository_path": "PiCt/Representative.lean",
+      "original_sha256": "2d2ac219e37bcdccecac45cbc97d5ba2d35eac6e0fb17c82a07c5f84dceef063",
+      "current_sha256": "2d2ac219e37bcdccecac45cbc97d5ba2d35eac6e0fb17c82a07c5f84dceef063",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/RunClosure.lean",
+      "repository_path": "PiCt/RunClosure.lean",
+      "original_sha256": "ed0a0c62a0a17b3c45fe012ccfea6406b39758d0696a8f2bee5596308c0ce6b9",
+      "current_sha256": "ed0a0c62a0a17b3c45fe012ccfea6406b39758d0696a8f2bee5596308c0ce6b9",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/RunFrequency.lean",
+      "repository_path": "PiCt/RunFrequency.lean",
+      "original_sha256": "4e06c226c7cd8147e8e055ecdbdd0ad0d7d8161bc8a82a25f7003690994674dc",
+      "current_sha256": "4e06c226c7cd8147e8e055ecdbdd0ad0d7d8161bc8a82a25f7003690994674dc",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/Usage.lean",
+      "repository_path": "PiCt/Usage.lean",
+      "original_sha256": "b232c08a661e2ecd9687b99727e6388b7eab4d1f65c5742ba98a40fdab313099",
+      "current_sha256": "b232c08a661e2ecd9687b99727e6388b7eab4d1f65c5742ba98a40fdab313099",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    },
+    {
+      "archive_path": "PiCt/WordOccurrence.lean",
+      "repository_path": "PiCt/WordOccurrence.lean",
+      "original_sha256": "ebad10e1c7d214150758a04af9a2be0b5e90c621591cd7d30b93f20a909d23bb",
+      "current_sha256": "ebad10e1c7d214150758a04af9a2be0b5e90c621591cd7d30b93f20a909d23bb",
+      "changed": false,
+      "statements_and_proof_bodies_unchanged": true
+    }
+  ]
+}

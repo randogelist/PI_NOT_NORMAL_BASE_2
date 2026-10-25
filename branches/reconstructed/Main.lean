@@ -1,0 +1,29 @@
+import PartA.PiRadixReadout
+import PartA.CtAnalytic
+import AWPI.VanishingCoefficientsAnchor
+import PartB.ExactCancellationClosure
+
+open Filter Topology
+open ANCHOPI.PartA
+open AWPI.VanishingCoefficientsAnchor
+open ANCHOPI.PartB.ExactCancellation
+
+#check pi_integral_anchor
+#check shellCtMagnitude_pos
+#check Ct_ne_zero
+#check criticalRemainder_step
+#check critical_interval_identity
+#check critical_bounded_remainder_not_normal
+#check vanishing_coefficients_bounded_remainder_not_normal
+#check concrete_remainder_identity
+#check normal_pi_forces_exact_cancellation
+#check failure_of_cancellation_refutes_normal_pi
+#check PART_B_EXACT_CANCELLATION_CLOSURE
+
+#print axioms ANCHOPI.PartA.Ct_ne_zero
+#print axioms AWPI.VanishingCoefficientsAnchor.critical_bounded_remainder_not_normal
+#print axioms AWPI.VanishingCoefficientsAnchor.vanishing_coefficients_bounded_remainder_not_normal
+#print axioms ANCHOPI.PartB.ExactCancellation.normal_pi_forces_exact_cancellation
+#print axioms ANCHOPI.PartB.ExactCancellation.failure_of_cancellation_refutes_normal_pi
+
+example : True := by trivial

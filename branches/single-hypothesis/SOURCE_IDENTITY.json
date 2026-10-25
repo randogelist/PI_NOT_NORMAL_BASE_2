@@ -1,0 +1,45 @@
+{
+  "branch_identity": "ANCHOPI_CT_SINGLE_HYPOTHESIS_LEAN_v0_1_2_FIX2",
+  "archive": "ANCHOPI_CT_SINGLE_HYPOTHESIS_LEAN_v0_1_2_FIX2.zip",
+  "archive_sha256": "ab73089b3de5e32eb3d1f4ed5a972599f8d6b02f4d19594716e33100cc4e2448",
+  "files": [
+    {
+      "path": "AWPIWordAnchor/CW00_Limits.lean",
+      "original_sha256": "46dfaabdd9615b29c5d1333f2c7570e1c3e6de8ee0ee6eeb59ac00ce547184f9",
+      "changes": [
+        "Replaced broad import Mathlib with explicit log, trigonometric, floor and tactic imports to reduce CI memory; all theorem statements and proof bodies unchanged."
+      ],
+      "current_sha256": "fd782ae50e1f2bcdf3de9d5802b4b5a4f8cdf28b912e7c5affcb81be1dc6ad93"
+    },
+    {
+      "path": "AWPIWordAnchor/CW01_Words.lean",
+      "original_sha256": "94acf937703ec12779800aff18f38645601eb2783fb16a09e2025608205fb85b",
+      "changes": [],
+      "current_sha256": "94acf937703ec12779800aff18f38645601eb2783fb16a09e2025608205fb85b"
+    },
+    {
+      "path": "AWPIWordAnchor/CW02_FiniteExperiment.lean",
+      "original_sha256": "ffc89900ea77d997808e40f254b34d6a4e563ee04dc5063505a8a6a4d8da4435",
+      "changes": [],
+      "current_sha256": "ffc89900ea77d997808e40f254b34d6a4e563ee04dc5063505a8a6a4d8da4435"
+    },
+    {
+      "path": "ActualPi/PiReadout.lean",
+      "original_sha256": "367391984e0a10345e82c433bf6ed37df2e96412f1b4159aba7ad9f5afb384a1",
+      "changes": [],
+      "current_sha256": "367391984e0a10345e82c433bf6ed37df2e96412f1b4159aba7ad9f5afb384a1"
+    },
+    {
+      "path": "Closure/ConditionalCT.lean",
+      "original_sha256": "bd4f04276c875bfc0bba1d4180493932c54b60d8216f4aef5a38f2067f82af50",
+      "changes": [],
+      "current_sha256": "bd4f04276c875bfc0bba1d4180493932c54b60d8216f4aef5a38f2067f82af50"
+    },
+    {
+      "path": "Main.lean",
+      "original_sha256": "ea8821d112802339a0e605bc0300ae5b0f444ab91f9958832492d95d8df4004a",
+      "changes": [],
+      "current_sha256": "ea8821d112802339a0e605bc0300ae5b0f444ab91f9958832492d95d8df4004a"
+    }
+  ]
+}

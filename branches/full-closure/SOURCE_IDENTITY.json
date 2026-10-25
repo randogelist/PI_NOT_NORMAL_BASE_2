@@ -1,0 +1,93 @@
+{
+  "branch_identity": "ANCHOPI_PI_NONNORMAL_FULL_CLOSURE_LEAN_v0_8_0_FIX2_FASTSTART",
+  "archive": "ANCHOPI_PI_NONNORMAL_FULL_CLOSURE_LEAN_v0_8_0_FIX2_FASTSTART.zip",
+  "archive_sha256": "f611834070375c223d4b8b9330baf3c87ff763cb9629745d7f061f38a8c5db2c",
+  "files": [
+    {
+      "path": "AWPIWordAnchor/CW00_Limits.lean",
+      "original_sha256": "46dfaabdd9615b29c5d1333f2c7570e1c3e6de8ee0ee6eeb59ac00ce547184f9",
+      "changes": [
+        "Replaced broad import Mathlib with explicit log, trigonometric, floor and tactic imports to reduce CI memory; all theorem statements and proof bodies unchanged."
+      ],
+      "current_sha256": "fd782ae50e1f2bcdf3de9d5802b4b5a4f8cdf28b912e7c5affcb81be1dc6ad93"
+    },
+    {
+      "path": "AWPIWordAnchor/CW01_Words.lean",
+      "original_sha256": "94acf937703ec12779800aff18f38645601eb2783fb16a09e2025608205fb85b",
+      "changes": [],
+      "current_sha256": "94acf937703ec12779800aff18f38645601eb2783fb16a09e2025608205fb85b"
+    },
+    {
+      "path": "AWPIWordAnchor/CW02_FiniteExperiment.lean",
+      "original_sha256": "ffc89900ea77d997808e40f254b34d6a4e563ee04dc5063505a8a6a4d8da4435",
+      "changes": [],
+      "current_sha256": "ffc89900ea77d997808e40f254b34d6a4e563ee04dc5063505a8a6a4d8da4435"
+    },
+    {
+      "path": "ActualPi/PiReadout.lean",
+      "original_sha256": "e08cda3aaf08402a525463366221d8b55a390138e644bd81ceea7e15ac8bc521",
+      "changes": [],
+      "current_sha256": "e08cda3aaf08402a525463366221d8b55a390138e644bd81ceea7e15ac8bc521"
+    },
+    {
+      "path": "Closure/ActualPiATier.lean",
+      "original_sha256": "ba508f5d9d577d45751a2cec52f8983f10081baecc580b198329cce922d76162",
+      "changes": [],
+      "current_sha256": "ba508f5d9d577d45751a2cec52f8983f10081baecc580b198329cce922d76162"
+    },
+    {
+      "path": "Closure/AnalyticATier.lean",
+      "original_sha256": "fe85ec5e2a7f0b5e37d9b825916d78982db1b616a1c49362f1004d7e8a768749",
+      "changes": [],
+      "current_sha256": "fe85ec5e2a7f0b5e37d9b825916d78982db1b616a1c49362f1004d7e8a768749"
+    },
+    {
+      "path": "Closure/FiniteParityFrontier.lean",
+      "original_sha256": "d2cffb534ff032ee37eb2587e632bf6259497525d69f048a7f82366fb52bb8a6",
+      "changes": [],
+      "current_sha256": "d2cffb534ff032ee37eb2587e632bf6259497525d69f048a7f82366fb52bb8a6"
+    },
+    {
+      "path": "Closure/FullClosure.lean",
+      "original_sha256": "4271cce0adceabe226d70303642fb6fedac14a0f653470969b3bec44357d9b8b",
+      "changes": [],
+      "current_sha256": "4271cce0adceabe226d70303642fb6fedac14a0f653470969b3bec44357d9b8b"
+    },
+    {
+      "path": "Closure/PiCtClosure.lean",
+      "original_sha256": "8ccb5a53dc3f052bd28d4c9bb1f6176754b537aafc39579c3b450f6a65b3c02e",
+      "changes": [],
+      "current_sha256": "8ccb5a53dc3f052bd28d4c9bb1f6176754b537aafc39579c3b450f6a65b3c02e"
+    },
+    {
+      "path": "Main.lean",
+      "original_sha256": "701027157e6184012a3187db7a1b7a4e80ca550c859f28ef00b84acc2723a20f",
+      "changes": [],
+      "current_sha256": "701027157e6184012a3187db7a1b7a4e80ca550c859f28ef00b84acc2723a20f"
+    },
+    {
+      "path": "PartA/CtAnalyticKernel.lean",
+      "original_sha256": "b0ca54c3f7ebd325161708a70311617100e4b8dbf244daaff2beaa54204deffd",
+      "changes": [],
+      "current_sha256": "b0ca54c3f7ebd325161708a70311617100e4b8dbf244daaff2beaa54204deffd"
+    },
+    {
+      "path": "PartA/CtAnalyticLimit.lean",
+      "original_sha256": "2904c29dda45625319098cd752f3bf3ee683e9595bd0c05184ef41fee533f717",
+      "changes": [],
+      "current_sha256": "2904c29dda45625319098cd752f3bf3ee683e9595bd0c05184ef41fee533f717"
+    },
+    {
+      "path": "PartA/CtLimit.lean",
+      "original_sha256": "6ca249a14e5edfa060c9b21509d3c7bc091c82f1d90c3fd73152e2ed25fd065e",
+      "changes": [],
+      "current_sha256": "6ca249a14e5edfa060c9b21509d3c7bc091c82f1d90c3fd73152e2ed25fd065e"
+    },
+    {
+      "path": "PartB/SignAnchor.lean",
+      "original_sha256": "f4650b98f358c54f5601e50b98b7f79bcd1e0badbe8a283f904182b817da1db0",
+      "changes": [],
+      "current_sha256": "f4650b98f358c54f5601e50b98b7f79bcd1e0badbe8a283f904182b817da1db0"
+    }
+  ]
+}

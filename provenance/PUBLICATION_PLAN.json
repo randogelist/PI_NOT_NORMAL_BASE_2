@@ -1,0 +1,9 @@
+{
+  "repository_full_name": "randogelist/PI_NOT_NORMAL_BASE_2",
+  "visibility": "public",
+  "default_branch": "main",
+  "remote_repository_status": "SOURCE_AND_CI_PREPARED",
+  "hosted_ci_status": "VERIFY_IN_ACTIONS_FOR_COMMIT",
+  "verification_policy": "CI_ONLY_NO_LOCAL_LEAN",
+  "initial_commit": "5e223c4caa07893b6a7f631509448eac7e1ccc40"
+}

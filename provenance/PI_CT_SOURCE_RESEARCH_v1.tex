@@ -1,0 +1,337 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array,microtype}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor,hyperref,fancyhdr}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black,
+pdftitle={Building around the frozen Ct},pdfauthor={Pi-Non-Normality project},
+pdfsubject={Source review and paper derivations; no nonnormality proof}}
+\definecolor{ink}{RGB}{22,49,69}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\textcolor{ink}{Pi nonnormality research}}
+\fancyhead[R]{\small Source-based continuation, 23 October 2026}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\Q}{\mathbb Q}\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}\newcommand{\T}{\mathbb R/\mathbb Z}
+\newcommand{\fracp}[1]{\{#1\}}
+\newcommand{\Normal}{\operatorname{Normal}_2}
+\newcommand{\av}[2]{\frac1{#1}\sum_{n<#1}#2}
+\begin{document}
+\begin{center}
+{\Large\bfseries\textcolor{ink}{Building around the frozen $C_t$}}\\[5pt]
+{\large A rational recurrence and continuous moment tests for the actual $\pi$ orbit}\\[5pt]
+{Working research note, version 1 --- 23 October 2026}
+\end{center}
+\textbf{Status.} This note derives mathematical consequences of the supplied project sources. It does not prove that $\pi$ is nonnormal. The new results below are paper proofs, independently checked in this session; they have not been compiled in Lean or Rocq. Existing source theorems and archived build reports are distinguished from new proofs. No novelty claim is made.
+
+\section{What the original \texorpdfstring{$C_t$}{C_t} closure actually requires}
+The frozen coefficient remains
+\[
+ C_t=\frac{(-1)^t}{4},\qquad t\in\N.
+\]
+The October A-tier package defines a finite-observation condition: for each scale $a$, $H(a,t)$ is determined by a finite word of the actual binary stream starting at $t$. Its additional tracking premise is
+\[
+ \forall\epsilon>0\ \exists A\ \forall a\ge A\ \forall t\ge0:
+ \quad |H(a,t)-C_t|<\epsilon.                 \tag{1}
+\]
+The uniform quantifier over $t$ is essential. The older package defines the candidate $C_t$ and proves its signs; the later v0.7.0 development separately proves the analytic limit. Neither proves (1) for actual $\pi$ digits.
+
+\begin{proposition}[Meaning of the original tracking premise]
+For any binary stream $b$, finite observations satisfying (1) exist if and only if
+\[
+ \exists L\ \forall s,t:\quad
+ b[s:s+L]=b[t:t+L]\ \Longrightarrow\ s\equiv t\pmod2.       \tag{2}
+\]
+\end{proposition}
+\begin{proof}
+Choose a single scale with error less than $1/4$ everywhere, and let $L$ be its observation width. The same observed value cannot lie within $1/4$ of both $1/4$ and $-1/4$, proving (2). Conversely, (2) makes $H(a,t)=C_t$ a finite observation for every $a$; its error is zero.
+\end{proof}
+Thus the original premise asks for one finite window that always determines start parity. It is stronger than an unspecified frequency defect. For example, it excludes constant blocks of length $L+1$, whose two consecutive length-$L$ subwords agree.
+
+\begin{proposition}[A weaker statistical tracking condition]
+If $b$ is normal and $H(t)=\varphi(b[t:t+L])$ for a fixed finite-word function $\varphi$, then
+\[
+ \lim_{M\to\infty}\av{M}{|H(n)-C_n|}
+ =2^{-L-1}\sum_{w\in\{0,1\}^L}
+ \bigl(|\varphi(w)-\tfrac14|+|\varphi(w)+\tfrac14|\bigr)
+ \ge\frac14.                                                   \tag{3}
+\]
+\end{proposition}
+\begin{proof}
+Normality gives frequency $2^{-L}$ for each word along both even and odd starts (equivalently use normality in base $4$, padding odd lengths by one bit). Split the average by parity. Each summand in parentheses is at least $1/2$ by the triangle inequality.
+\end{proof}
+Hence one fixed finite observation with lower limiting mean error less than $1/4$ would suffice. No such observation has been proved to exist for $\pi$.
+
+\newpage
+\section{The same coefficient in the actual Gregory remainder}
+Let
+\[
+ G_m=\sum_{j<m}\frac{(-1)^j}{2j+1},\qquad
+ I_m=\int_0^1\frac{u^{2m}}{1+u^2}\,du.
+\]
+Integrating a finite geometric identity gives
+\[
+ \frac\pi4-G_m=(-1)^m I_m.
+\]
+For $m\ge1$, integration by parts gives
+\begin{align*}
+ I_m&=\frac1{4m}-D_m,\\
+ D_m&=\frac1{2m}\int_0^1
+       \frac{u^{2m}(1-u^2)}{(1+u^2)^2}\,du.
+\end{align*}
+\[
+ 0<D_m\le\frac1{4m(4m^2-1)}.                              \tag{4}
+\]
+For the bound, use $(1+u^2)^2\ge4u^2$ and integrate
+$u^{2m-2}(1-u^2)/(8m)$. This is a uniform analytic remainder estimate, not an empirical estimate of digits.
+
+For $N_a=2^{a+10}$ and fixed $t$, evenness of $N_a$ yields
+\[
+ \boxed{\lim_{a\to\infty}N_a\left(\frac\pi4-G_{N_a+t}\right)=C_t.} \tag{5}
+\]
+More precisely, writing $m=N_a+t$,
+\[
+ \left|N_a\left(\frac\pi4-G_m\right)-C_t\right|
+ =\frac{t}{4m}+N_aD_m
+ \le\frac{t}{4N_a}+\frac1{4(4N_a^2-1)}.
+\]
+This is a second realization of the same frozen limit. It does not identify the finite Gregory remainder with the earlier logarithmic readout.
+
+At $t=0$, define $R_N=4NG_N+1\in\Q$. Equation (4) proves
+\[
+ \boxed{N\pi=R_N-\epsilon_N,\qquad
+ 0<\epsilon_N\le\frac1{4N^2-1}}                              \tag{6}
+\]
+for even $N$. In particular,
+\[
+ \lfloor N\pi\rfloor=\lfloor R_N\rfloor
+       -\mathbf1_{\{\fracp{R_N}<\epsilon_N\}}.
+\]
+The leading correction $4C_0=1$ is an integer, so it vanishes modulo one. It supplies no frequency bias on its own.
+
+\begin{proposition}[An exact arithmetic property]
+For $N=2^n$, $n\ge1$, the rational $G_N$ has $2$-adic valuation $v_2(G_N)=n$.
+\end{proposition}
+\begin{proof}
+The base case is $G_2=2/3$. For even $N$,
+\[
+ G_{2N}-2G_N=-2N\sum_{k<N}
+ \frac{(-1)^k}{(2k+1)(2k+2N+1)}.
+\]
+In the rationals with odd denominators each summand is $1$ modulo $2$; the even number of summands makes their sum divisible by $2$. The error has valuation at least $n+2$, whereas $2G_N$ has valuation $n+1$. Induction follows.
+\end{proof}
+This congruence does not imply a real interval bias. Multiplication by powers of $2$ permutes residues modulo the odd common denominator.
+
+\newpage
+\section{The useful source branch: a shorter rational orbit}
+The BETA9 polynomial source proves
+\[
+ P(u)=32u^3(1-u)^6,\quad P(u)-256=(1+u^2)C(u),
+\]
+where
+\[
+ C(u)=32u^7-192u^6+448u^5-448u^4+32u^3+256u^2-256.
+\]
+Set
+\[
+ r(u)=\frac{P(u)}{256},\quad \rho=\frac8{19683},\quad
+ w(u)=\frac{1-r(u)}{1+u^2}=-\frac{C(u)}{256}.
+\]
+The maximum of $r$ on $[0,1]$ is $\rho$, attained at $u=1/3$.
+Because $r,w$ are rational polynomials, the positive quantities
+\[
+ s_n=\int_0^1w(u)r(u)^n\,du,
+ \qquad S_n=\sum_{j<n}s_j
+\]
+are rational. Finite geometric summation proves, without an infinite interchange,
+\[
+ \boxed{\frac\pi4-S_n=\int_0^1\frac{r(u)^n}{1+u^2}\,du,
+ \qquad0<\frac\pi4-S_n\le\frac\pi4\rho^n.}                 \tag{7}
+\]
+This complete paper argument already appears in the AZETON derivation. Its analytic bridge is not claimed as kernel-checked in that archive.
+
+The source's coefficient formula is $s_n=H(n)g_n$, with
+\begin{align*}
+ H(n)&=318735n^5+909522n^4+990306n^3\\
+     &\quad+509196n^2+121831n+10554,\\
+ A(n)&=(n+1)(2n+1)(3n+1)(3n+2)(6n+1)(6n+5),\\
+ B(n)&=3(9n+10)(9n+11)(9n+13)(9n+14)(9n+16)(9n+17),\\
+ g_0&=1/13440,\qquad g_{n+1}=\frac{A(n)}{B(n)}g_n.
+\end{align*}
+It follows by integrating the polynomial with beta integrals; the rational identities after clearing denominators were independently checked exactly in this session.
+
+\begin{theorem}[A two-coordinate rational realization]
+Initialize $x_0=0$, $y_0=1/3360$, and iterate
+\[
+ \boxed{\begin{aligned}
+ x_{n+1}&=2x_n+2H(n)y_n,\\
+ y_{n+1}&=\frac{2A(n)}{B(n)}y_n.
+ \end{aligned}}                                               \tag{8}
+\]
+Then $x_n=4\cdot2^nS_n$, $y_n=4\cdot2^ng_n$, and, with
+$\sigma=2\rho=16/19683$,
+\[
+ 0<2^n\pi-x_n\le\pi\sigma^n<4\sigma^n.                    \tag{9}
+\]
+\end{theorem}
+\begin{proof}
+The two state identities follow by induction from the successor laws of $S_n,g_n$; (9) is (7) multiplied by $4\cdot2^n$.
+\end{proof}
+Writing $V_n=\fracp{x_n}$ and $X_n=\fracp{2^n\pi}$, their circle distance tends to zero. Thus $\Normal(\pi)$ is equivalent to uniform distribution of $(V_n)$. This uses $n$ rational terms at digit scale $2^n$, rather than the $2^n$ terms in $G_{2^n}$; it is not a constant-bit-cost claim.
+
+\newpage
+\section{Continuous rational tests, including a \texorpdfstring{$C_t$}{C_t} correlation}
+Define, for $k\ge1$,
+\[
+ f_k(v)=v^k(1-v),\qquad
+ T_k(M)=\av{M}{f_k(V_n)}\in\Q.
+\]
+Each $f_k$ is continuous on the circle: $f_k(0)=f_k(1)=0$.
+It is also $1$-Lipschitz uniformly in $k$, because
+\[
+ f_k'(v)=kv^{k-1}(1-v)-v^k,\qquad
+ 0\le kv^{k-1}(1-v)\le1-v^k,
+\]
+so $-1\le f_k'\le1$; the endpoint agreement extends this bound to circle distance.
+By (9), for every $k\ge1$ and $M\ge1$,
+\[
+ \boxed{\left|T_k(M)-\av{M}{f_k(X_n)}\right|
+ <\frac4{M(1-\sigma)}.}                                      \tag{10}
+\]
+There is no carry-density or boundary-avoidance hypothesis.
+
+\begin{theorem}[A complete rational moment criterion]
+\[
+ \boxed{\Normal(\pi)\ \Longleftrightarrow\
+ \forall k\ge1:\ \lim_{M\to\infty}T_k(M)
+       =\frac1{(k+1)(k+2)}.}                                  \tag{11}
+\]
+\end{theorem}
+\begin{proof}
+The displayed value is $\int_0^1f_k(v)\,dv$. Normality is equivalent to uniform distribution of $(X_n)$, hence of $(V_n)$. Conversely, constants and the span of the $f_k$ are exactly the polynomials whose endpoint values agree. They are uniformly dense in continuous circle functions: Bernstein approximation of a continuous function with equal endpoint values preserves that equality. Convergence of these moments therefore implies uniform distribution.
+\end{proof}
+
+To retain the original parity coefficient as part of the test, set
+\[
+ \boxed{B_k(M)=\av{M}{C_n f_k(V_n)}
+       =\frac1{4M}\sum_{n<M}(-1)^nV_n^k(1-V_n).}             \tag{12}
+\]
+Its transfer error to actual $\pi$ is less than $1/[M(1-\sigma)]$ by (10)'s proof. Normality in base $2$ implies normality in base $4$; the even and odd phase subsequences therefore have the same limiting integral. Consequently,
+\[
+ \Normal(\pi)\ \Longrightarrow\ \forall k\ge1:\ B_k(M)\longrightarrow0.
+\]
+An exact sufficient target centered on $C_t$ is
+\[
+ \boxed{\exists k\ge1\ \exists\eta>0\ \forall M_0\ \exists M\ge\max(1,M_0):
+ \quad |B_k(M)|\ge\eta.}                                     \tag{13}
+\]
+Here $C_n$ is an exact weight; no fixed-offset asymptotic estimate is being substituted into a growing-offset average. Unlike (11), this parity-only test is not claimed to characterize all nonnormal sequences. No $k,\eta$ satisfying (13) has been established.
+
+The associated rational Hankel matrix
+\[
+ \mathcal H_d(M)_{ij}=T_{i+j+1}(M)
+\]
+is automatically positive semidefinite, since its quadratic form is the average of
+$V_n(1-V_n)(\sum_i c_iV_n^i)^2$. Under normality its limit has entries
+$1/[(i+j+2)(i+j+3)]$. The useful target is a persistent defect from this reference matrix; positivity alone holds for every sequence.
+
+\newpage
+\section{Why the contraction branches do not supply the missing bias}
+The actual BETA9 construction in \texttt{G108\_Beta9Concrete.v} defines
+\[
+ R_0=1,\quad \eta_m=\int_0^1\frac{P-256}{1+u^2}R_m,\quad
+ f_m=\lfloor\eta_m+\tfrac12\rfloor,
+\]
+\[
+ R_{m+1}=PR_m+(f_m-\eta_m)(1+u^2).
+\]
+It proves $J_m=\int_0^1R_m/(1+u^2)$ satisfies
+\[
+ J_0=\pi/4,\qquad J_{m+1}=256J_m+f_m.
+\]
+The following decomposition precisely identifies which part can contract.
+
+Let $v_m=R_m/(1+u^2)$, and for real $L^2[0,1]$ functions set
+\[
+ L(v)=\int_0^1(P-256)v,\qquad Tv=Pv-L(v)\mathbf1.
+\]
+Then $v_{m+1}=Tv_m+f_m\mathbf1$ and $\int Tv=256\int v$.
+The positive function
+\[
+ w_*(u)=\frac1{256-P(u)}
+\]
+satisfies $L(w_*)=-1$ and $Tw_*=256w_*$. Normalize $h=w_*/\int w_*$.
+Every $v$ decomposes uniquely as $v=Jh+z$, $J=\int v$, $\int z=0$.
+On the mean-zero subspace,
+\[
+ Tz=Pz-\int Pz=\Pi_0(Pz),
+\]
+where $\Pi_0$ is orthogonal projection in $L^2[0,1]$. Since
+$\|P\|_\infty=256\rho<1/8$,
+\[
+ \boxed{\|Tz\|_2\le\tfrac18\|z\|_2.}                      \tag{14}
+\]
+Nevertheless, the complete recurrence is
+\[
+ \boxed{J_{m+1}=256J_m+f_m,\qquad
+ z_{m+1}=Tz_m+f_m(1-h).}                                    \tag{15}
+\]
+The integer itinerary couples a contracting shape component to an expanding arithmetic coordinate. The contraction does not determine that itinerary's frequencies.
+
+Two other source boundaries matter:
+\begin{itemize}
+\item The selector-cancellation source gives an exact actual-digit reduction
+\[
+ S_a=\tfrac34(\mathcal R_a+H_a)+E_a,
+ \quad H_a\to\tfrac{\log2}{4},\quad E_a\to0.
+\]
+Normality forces $\mathcal R_a\to-\log2/4$. The positive harmonic term alone does not rule out this compensating remainder.
+\item The RH phase modules bound geometric sums of fixed rotations $z^n$. The doubling phases relevant here are $z^{2^n}$; the fixed-rotation telescoping identity does not apply. Hankel and Schur identities organize moments but do not establish a defect from the uniform reference measure.
+\end{itemize}
+The archives also contain an explicit density-zero modification of a normal stream with nonzero pointwise rescaled parity limits. Thus pointwise $C_t$ limits, uniform tracking, and persistent frequency defects must remain separate claims.
+
+\newpage
+\section{Research endpoint, verification, and source map}
+The source-based continuation has three concrete parts:
+\begin{enumerate}
+\item Preserve the frozen $C_t$ and its direct Gregory realization (5).
+\item Use the BETA9/AZETON rational recurrence (8) to represent the actual $\pi$ orbit with geometric phase error.
+\item Seek either a fixed ordinary-moment defect in (11), or a fixed $C_t$-weighted correlation in (13). These are genuine distribution statements. A finite collection of certified averages does not establish their limiting behavior.
+\end{enumerate}
+One low-degree ordinary test adapted to long alternating behavior is
+\[
+ g(v)=(3v-1)^2(3v-2)^2,
+ \qquad\int_0^1g(v)\,dv=\frac7{10}.
+\]
+It vanishes at the alternating periodic phases $1/3$ and $2/3$ and has equal endpoint values. Since it is $36$-Lipschitz on the circle, (9) transfers its empirical average with error less than $144/[M(1-\sigma)]$. A persistent deviation from $7/10$ would suffice, but none has been proved. This test detects more than purely alternating words and makes no claim that those words are already suppressed.
+
+\textbf{Verification performed.} Exact rational polynomial arithmetic independently checked the BETA9 factor identity, the cleared-denominator coefficient formula for $H(n)g_n$, the rational successor formula $A(n)/B(n)$, and the quartic reference integral $7/10$. These checks establish the stated algebraic identities, not any digit-distribution theorem. No new proof-assistant build was run and no numerical evidence for nonnormality is claimed.
+
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\raggedright\arraybackslash}p{.35\textwidth}>{\raggedright\arraybackslash}p{.57\textwidth}}
+\toprule
+Source in supplied bundles & What was used and what remains explicit \\
+\midrule
+\texttt{ANCHOPI...v0\_6\_0}: \texttt{SignAnchor.lean}, \texttt{ActualPiATier.lean} & Exact finite-observation and uniform-tracking hypotheses; conditional nonnormality endpoint. \\
+\texttt{PI\_DYADIC\_CT\_v0\_7\_0} & Frozen analytic $C_t$, exact actual-digit readout, previously checked conditional closures; no proved actual residual-tail estimate. \\
+\texttt{NormalityClosure}; selector v0.21.0 & Actual selector/remainder identities and the cancellation forced by normality; pointwise-versus-uniform distinction. \\
+\texttt{G103\_Beta9Algebra.v}; \texttt{G108\_Beta9Concrete.v} & Polynomial factor and genuine integral/radix construction. \\
+\texttt{G113\_BoundedSuffix.v}; \texttt{G115\_FeedbackSensitivity.v} & Controlled suffix remainder, and expansion along shared feedback itineraries. \\
+\texttt{AZETON\_log\_jump\_}\newline\texttt{derivation\_v0\_2.md}; \texttt{awpi\_reinference.md} & Complete paper positive-series derivation and rational coefficients; analytic series bridge not kernel-checked in those reports. \\
+\texttt{AZETON\_Log03/05/08} & Algebraic tail expressions, integer coefficient definitions, rational block composition; these names do not certify the analytic bridge. \\
+\texttt{LN20\_ScaledFloorExact.v}; \texttt{LN18\_AddressDrivenProjector.v} & Bulk-plus-comparison-bit floor identity; concrete finite-state comparison emitter remains an interface. \\
+\texttt{J20/J22}; \texttt{RH14} & Fixed-rotation Cesaro bounds and Jacobi algebra; no dyadic-orbit distribution estimate. \\
+\bottomrule
+\end{tabular}
+\normalsize
+
+\textbf{Classical background.} The arctangent series and derivative are recorded in NIST DLMF \href{https://dlmf.nist.gov/4.24}{\S4.24}. Normality as uniform distribution of the base-power orbit, invariance under vanishing circle perturbations, and the distinction between arithmetic recurrences and their equidistribution are standard; see Bailey--Crandall, \href{https://www.davidhbailey.com/dhbpapers/bcnormal.pdf}{\emph{Random Generators and Normal Numbers}}. These background results do not settle the particular recurrence (8).
+
+\textbf{Open statement.} No persistent defect in (11) or (13), no actual-$\pi$ finite parity decoder, and no proof of $\neg\Normal(\pi)$ has been obtained. The benefit of the cross-branch synthesis is an explicit shorter arithmetic object and a rigorous continuous interface on which to seek the missing estimate.
+\end{document}

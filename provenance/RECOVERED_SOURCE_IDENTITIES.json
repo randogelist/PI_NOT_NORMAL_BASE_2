@@ -1,0 +1,68 @@
+{
+  "retrieved_date": "2026-10-25",
+  "sources": [
+    {
+      "filename": "ANCHOPI_CT_EXACT_OBSTRUCTION_LEAN_v0_2_0.zip",
+      "library_file_id": "libfile_ffbb2b655fb08191a5d16ea7c693a857",
+      "library_version": null,
+      "sha256": "c3b814afba6f8745d9ac6946bb59c659ce523ac2298ade5f11337bb4ac60d3e4",
+      "size_bytes": 10939
+    },
+    {
+      "filename": "ANCHOPI_CT_SINGLE_HYPOTHESIS_LEAN_v0_1_2_FIX2.zip",
+      "library_file_id": "libfile_c66a1e9b6ce481918d1b073baab7fedf",
+      "library_version": null,
+      "sha256": "ab73089b3de5e32eb3d1f4ed5a972599f8d6b02f4d19594716e33100cc4e2448",
+      "size_bytes": 11442
+    },
+    {
+      "filename": "ANCHOPI_PI_NONNORMAL_FULL_CLOSURE_LEAN_v0_8_0_FIX2_FASTSTART.zip",
+      "library_file_id": "libfile_c6b7e5dd02f4819188a7dc746f113e02",
+      "library_version": "3",
+      "sha256": "f611834070375c223d4b8b9330baf3c87ff763cb9629745d7f061f38a8c5db2c",
+      "size_bytes": 109024
+    },
+    {
+      "filename": "ANCHOPI_FRONTIER_EXPLICIT_LEAN_v0_4_0_FASTSTART.zip",
+      "library_file_id": "libfile_9238cc768f548191a8f22a5d4caff24c",
+      "library_version": null,
+      "sha256": "074e85ef6e101067743db2d974a7568343835a9132b84e01ecb21c4b697757d2",
+      "size_bytes": 13074
+    },
+    {
+      "filename": "ANCHOPI_RECONSTRUCTED_CHAIN_LEAN_v0_3_1_FIX1_FASTSTART.zip",
+      "library_file_id": "libfile_1d40c1a121788191a3d09f34188a7ea1",
+      "library_version": null,
+      "sha256": "d416e64797ee18ccd233e097f14371f2629953520a9d5e4efb99fa9219877574",
+      "size_bytes": 17240
+    },
+    {
+      "filename": "ANCHOPI_PART_B_CT_CONTRADICTION_LEAN_v0_2_1_FIX1.zip",
+      "library_file_id": "libfile_aaf0082f206c8191bf2597e861727658",
+      "library_version": null,
+      "sha256": "c68083d91d74cd1cc1a82dd588f43daf347c5d87516c3d459f57e725aeddfce4",
+      "size_bytes": 23239
+    },
+    {
+      "filename": "ANCHOPI_PART_A_CT_LEAN_v0_1_5_FIX4_FASTSTART.zip",
+      "library_file_id": "libfile_ef543193b4b8819196728131c170c001",
+      "library_version": null,
+      "sha256": "d0e4e6217175c219a344931f4ff657e0ae50e00939da7f70e51f539e13200e28",
+      "size_bytes": 18554
+    },
+    {
+      "filename": "PI_DYADIC_CT_v0_7_0.zip",
+      "library_file_id": "libfile_b68df8327e5c8191b66c92fbed858626",
+      "library_version": null,
+      "sha256": "0495796f3afd26d7c10cbd68f73c4f245ef4f54a11cd384319ea3207a4a56948",
+      "size_bytes": 88342
+    },
+    {
+      "filename": "PI_CT_SOURCE_RESEARCH_v1.tex",
+      "library_file_id": "libfile_9026859191208191b9b86b5212593899",
+      "library_version": null,
+      "sha256": "47d7881b861eba75a49647e8c29e15443cecf3ef28dc98824a1e70ce5900941e",
+      "size_bytes": 17548
+    }
+  ]
+}

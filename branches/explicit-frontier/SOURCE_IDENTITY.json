@@ -1,0 +1,35 @@
+{
+  "branch_identity": "ANCHOPI_FRONTIER_EXPLICIT_LEAN_v0_4_0_FASTSTART",
+  "archive": "ANCHOPI_FRONTIER_EXPLICIT_LEAN_v0_4_0_FASTSTART.zip",
+  "archive_sha256": "074e85ef6e101067743db2d974a7568343835a9132b84e01ecb21c4b697757d2",
+  "files": [
+    {
+      "path": "AWPI/VanishingCoefficientsAnchor.lean",
+      "original_sha256": "3eb32a71b6016e5354bc871b23f4e82d80821420bfd233949092c86ba837dce5",
+      "changes": [
+        "Replaced broad import Mathlib with explicit log, trigonometric, floor and tactic imports to reduce CI memory; all theorem statements and proof bodies unchanged."
+      ],
+      "current_sha256": "ccebf8d30af4fe1e1b2d6ff55fa11546c055900caa713ae34f5aa8fbd718ccbb"
+    },
+    {
+      "path": "Main.lean",
+      "original_sha256": "1a7396f1c15ab3339141d36ec7b0a43eabdfb5c5c670a23633187c6d7ea42a68",
+      "changes": [],
+      "current_sha256": "1a7396f1c15ab3339141d36ec7b0a43eabdfb5c5c670a23633187c6d7ea42a68"
+    },
+    {
+      "path": "PartA/CtMagnitude.lean",
+      "original_sha256": "854e96370275c5c744fae25266cb894324e35cdb1f4887c3359c91043d6f1c13",
+      "changes": [],
+      "current_sha256": "854e96370275c5c744fae25266cb894324e35cdb1f4887c3359c91043d6f1c13"
+    },
+    {
+      "path": "PartB/ConcreteFrontier.lean",
+      "original_sha256": "1d39f10ffbaf0769c8864723bcec06342c6f101243187b18f64c376ce3f0b371",
+      "changes": [
+        "Replaced broad import Mathlib with explicit log, trigonometric, floor and tactic imports to reduce CI memory; all theorem statements and proof bodies unchanged."
+      ],
+      "current_sha256": "9cd5584605a8ac3c94e1fdf0122c6ef288b620e9274a4c0787441c14d6fe3aa4"
+    }
+  ]
+}

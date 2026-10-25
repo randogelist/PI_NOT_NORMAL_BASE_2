@@ -1,0 +1,38 @@
+{
+  "branch_identity": "ANCHOPI_PART_B_CT_CONTRADICTION_LEAN_v0_2_1_FIX1",
+  "archive": "ANCHOPI_PART_B_CT_CONTRADICTION_LEAN_v0_2_1_FIX1.zip",
+  "archive_sha256": "c68083d91d74cd1cc1a82dd588f43daf347c5d87516c3d459f57e725aeddfce4",
+  "files": [
+    {
+      "path": "Main.lean",
+      "original_sha256": "405e24cca6701ebc8c9c5b11dae6e81969e1539b78dd450d35b477fb924f38db",
+      "changes": [],
+      "current_sha256": "405e24cca6701ebc8c9c5b11dae6e81969e1539b78dd450d35b477fb924f38db"
+    },
+    {
+      "path": "PartA/CtAnalytic.lean",
+      "original_sha256": "173eb35d5ec4f848de00afcc9d4646648fe13a394c29c9e01651ef067e6d331f",
+      "changes": [],
+      "current_sha256": "173eb35d5ec4f848de00afcc9d4646648fe13a394c29c9e01651ef067e6d331f"
+    },
+    {
+      "path": "PartA/PiRadixReadout.lean",
+      "original_sha256": "ce857f22ee3d400ef29c54aeecfa24f2c5058ab27006c6171f8994157bea8ce7",
+      "changes": [],
+      "current_sha256": "ce857f22ee3d400ef29c54aeecfa24f2c5058ab27006c6171f8994157bea8ce7"
+    },
+    {
+      "path": "PartB/CtContradiction.lean",
+      "original_sha256": "63e05a23af504b4e72023657446314aeacc0394f4b5c330225b0a3caada3485f",
+      "changes": [],
+      "current_sha256": "63e05a23af504b4e72023657446314aeacc0394f4b5c330225b0a3caada3485f"
+    }
+  ],
+  "additions": [
+    {
+      "path": "AuditFindings.lean",
+      "reason": "Mechanical proof that the historical global address premise is impossible at j=0; original source unchanged.",
+      "current_sha256": "17ca0ae3154686e564e885c231c0cb740b592938a6a61842eef54e30f1053aeb"
+    }
+  ]
+}
