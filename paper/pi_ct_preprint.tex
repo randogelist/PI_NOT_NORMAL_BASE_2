@@ -1,0 +1,639 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm,headheight=14pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,longtable,microtype}
+\usepackage{xcolor,hyperref,fancyhdr}
+\definecolor{linkblue}{RGB}{23,57,93}
+\hypersetup{colorlinks=true,linkcolor=linkblue,urlcolor=linkblue,citecolor=linkblue,
+  pdftitle={The C\_t Route toward Binary Non-Normality of Pi},
+  pdfsubject={Formalized analytic progress and an explicit residual-tail criterion}}
+\urlstyle{tt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small The $C_t$ route: formalized progress}
+\fancyhead[R]{\small Research preprint, v1}
+\fancyfoot[C]{\small\thepage}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{1.2em}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\N}{\mathbb N}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\Normal}{\operatorname{Normal}_2}
+\newcommand{\fracpart}[1]{\{#1\}}
+\newcommand{\Ct}{C_t}
+\newcommand{\repo}{\href{https://github.com/randogelist/PI_NOT_NORMAL_BASE_2}{PI\_NOT\_NORMAL\_BASE\_2}}
+\newcommand{\code}[1]{{\small\nolinkurl{#1}}}
+\title{\vspace{-12mm}\textbf{The \texorpdfstring{$C_t$}{C_t} Route toward\\Binary Non-Normality of \texorpdfstring{$\pi$}{Pi}}\\[6pt]
+  \large Formalized analytic progress and an explicit residual-tail criterion}
+\author{\normalsize Research note accompanying \repo}
+\date{\normalsize Version 1 \quad$\cdot$\quad 25 October 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{plain}
+\begin{abstract}
+We present the mathematical content and proof boundary of a Lean development
+investigating binary non-normality of $\pi$ through a signed dyadic coefficient.
+An arctangent representative anchored at the actual constant $\pi$ yields a
+logarithmic split, a uniquely determined coefficient $C_t=(-1)^t/4$, and an
+explicit second-order remainder. For the actual binary digits, a finite
+counting argument bounds the combined frequency of two alternating words by
+the empirical tail of a precisely defined parity residual. A sufficiently
+small eventual tail then implies non-normality. The required tail estimate
+for $\pi$ remains open. We explain why coefficient nonvanishing alone does
+not supply it, distinguish historical uses of the notation $C_t$, and map
+the statements to a GitHub-hosted Lean verification of 71 source modules
+across eight isolated projects. This preprint records verified progress and
+its conditional endpoint; it does not assert an unconditional
+non-normality theorem.
+\end{abstract}
+
+\section{Scope and conventions}
+\label{sec:scope}
+
+The retained research route begins with an analytic coefficient and seeks
+an estimate on the actual digits of $\pi$. These are separate mathematical
+objects. We use $C_t$ only for the real-valued coefficient, and reserve
+frequency notation for counts of actual words.
+
+Throughout, $\N=\{0,1,2,\ldots\}$. A Boolean digit is identified with the
+real number $0$ or $1$ when it occurs in a sum. For a binary stream $b$,
+a word $w\in\{0,1\}^{\ell}$, and $M\ge1$, define
+\begin{equation}
+ f_M^b(w)=\frac1M\#\{0\le n<M:
+       (b_n,\ldots,b_{n+\ell-1})=w\}.
+ \label{eq:frequency}
+\end{equation}
+The count is over $M$ starting positions. A word starting before $M$
+may extend beyond position $M-1$; it is not required to fit inside
+a truncated prefix.
+
+\begin{definition}
+A stream $b$ is binary normal if, for every fixed length $\ell$ and
+every $w\in\{0,1\}^{\ell}$,
+$f_M^b(w)\longrightarrow 2^{-\ell}$ as $M\to\infty$.
+For a real number $x$ we use the fractional binary digits
+\begin{equation}
+ b_n(x)=\ind_{\{\fracpart{2^n x}\ge1/2\}}.
+ \label{eq:bits}
+\end{equation}
+We write $\Normal(x)$ for normality of this stream.
+\end{definition}
+
+The formal development implements words by their binary integer codes;
+equality of codes of a fixed length is proved to imply equality of
+the constituent bits. Conversely, equal bits give equal codes by the
+recursive definition. Its predicate \code{BinaryNormal} is the
+fixed-word definition above. The main finite estimate, specialized to
+$\pi$, is
+\begin{equation}
+ F_{2N}(r)\le
+ 2T_{E_\pi}(r/4,N)+\frac{r+1/2}{N},\qquad N>0,
+ \label{eq:mainpreview}
+\end{equation}
+where $F_M(r)$ counts the two alternating words of length $2r+1$,
+and $E_\pi$ is defined in Section~\ref{sec:residual}.
+The finite inequality is unconditional. Controlling its right-hand side
+as $N\to\infty$ is the remaining distribution problem.
+
+\section{The anchored analytic coefficient}
+\label{sec:coefficient}
+
+Let $P(z)=4\arctan_{\C}(z)$, with the complex arctangent used by Mathlib.
+The development proves
+\begin{equation}
+ P(1)=\pi,\qquad
+ P(z)=4\sum_{n\ge0}\frac{(-1)^n z^{2n+1}}{2n+1}
+ \quad (|z|<1).
+ \label{eq:anchor}
+\end{equation}
+The identity at $1$ follows from $\arctan(1)=\pi/4$.
+It does not follow by substituting $z=1$ into the displayed
+open-disk power-series statement.
+
+For $M>0$ and $s\ge0$, set $q(M,s)=s/(2M+s)$. Along the relevant
+imaginary ray,
+\[
+ \operatorname{Im}P(iq(M,s))=2\log(1+s/M).
+\]
+Consequently, the ratio of two readouts from the same representative is
+\begin{equation}
+ Q(M)=\frac{\operatorname{Im}P(iq(M,1))}
+              {\operatorname{Im}P(iq(M,2))}
+      =\frac{\log(1+1/M)}{\log(1+2/M)}
+      =\frac12+\delta(M),
+ \label{eq:split}
+\end{equation}
+where
+\begin{equation}
+ \delta(M)=
+ \frac{\log\!\left(1+\frac1{M(M+2)}\right)}
+      {2\log(1+2/M)}.
+ \label{eq:delta}
+\end{equation}
+The denominator is strictly positive. The last equality follows by
+taking logarithms in
+$(1+1/M)^2/(1+2/M)=1+1/[M(M+2)]$.
+This readout is an analytic ratio; no identification with a digit
+probability or a word frequency is made.
+
+\begin{lemma}[Rational bounds for the logarithmic defect]
+\label{lem:delta}
+For every real $M>0$,
+\begin{equation}
+ \frac{M}{4(M+1)^2}\le\delta(M)\le\frac1{4M}.
+ \label{eq:deltabounds}
+\end{equation}
+For every $N>0$ and $t\ge0$,
+\begin{equation}
+ 0\le\frac14-N\delta(N+t)\le\frac{t+2}{4N}.
+ \label{eq:scaledbounds}
+\end{equation}
+\end{lemma}
+\begin{proof}
+For $u\ge0$, $u/(1+u)\le\log(1+u)\le u$.
+Applied to the numerator and denominator of \eqref{eq:delta}, these
+bounds give
+\[
+ \frac1{(M+1)^2}\le
+ \log\!\left(1+\frac1{M(M+2)}\right)\le\frac1{M(M+2)},
+ \qquad
+ \frac2{M+2}\le\log(1+2/M)\le\frac2M.
+\]
+Division yields \eqref{eq:deltabounds}. With $M=N+t$, it follows that
+\[
+ \frac{N(N+t)}{4(N+t+1)^2}
+       \le N\delta(N+t)\le\frac{N}{4(N+t)}\le\frac14.
+\]
+For the error in the lower bound, after multiplication by positive
+denominators, the required inequality is equivalent to
+\[
+ (t+2)(N+t+1)^2
+   -N\bigl((N+t+1)^2-N(N+t)\bigr)\ge0.
+\]
+Its left-hand side equals
+$t(t+2)(N+t)+(2t+3)(N+t)+2t+2$, which is nonnegative.
+\end{proof}
+
+Write $N_a=2^{10+a}$ and preserve the signed readout
+\begin{equation}
+ G(a,t)=\frac12+(-1)^t\delta(N_a+t),\qquad
+ H(a,t)=N_a\bigl(G(a,t)-\tfrac12\bigr),
+ \quad a,t\in\N.
+ \label{eq:dyadic}
+\end{equation}
+
+\begin{theorem}[The frozen coefficient and its remainder]
+\label{thm:coefficient}
+For each fixed $t\in\N$, the limit of $H(a,t)$ as $a\to\infty$ exists
+uniquely and equals
+\begin{equation}
+ C_t=\frac{(-1)^t}{4}.
+ \label{eq:Ct}
+\end{equation}
+In particular, $|C_t|=1/4$ and $C_t\ne0$. For all $a,t\in\N$,
+\begin{align}
+ |H(a,t)-C_t|&\le\frac{t+2}{4N_a}, \label{eq:Cerror}\\
+ \left|G(a,t)-\frac12-\frac{C_t}{N_a}\right|
+       &\le\frac{t+2}{4N_a^2}. \label{eq:Gremainder}
+\end{align}
+If $a\le b$, then
+\begin{equation}
+ |H(b,t)-H(a,t)|\le\frac{t+2}{4N_a}.
+ \label{eq:cauchy}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Equation \eqref{eq:Cerror} follows from \eqref{eq:scaledbounds}
+and $|(-1)^t|=1$. Since $N_a^{-1}\to0$, the squeeze theorem gives
+the limit, and uniqueness follows in $\R$.
+Dividing \eqref{eq:Cerror} by $N_a$ gives
+\eqref{eq:Gremainder}.
+For \eqref{eq:cauchy}, both unsigned values
+$N_a\delta(N_a+t)$ and $N_b\delta(N_b+t)$ lie in the interval
+$[1/4-(t+2)/(4N_a),\,1/4]$. Their difference is bounded by the
+length of that interval.
+\end{proof}
+
+In Lean, \code{Pi.C_T t} is obtained from proved unique existence of
+the limit for the concrete representative; its value is then identified
+by \code{PI_CT_VALUE}. The concrete instance supplies the analytic
+existence proof. No unresolved analytic premise is passed into that
+instance. Every limit here fixes $t$ before letting $a$ grow.
+
+\section{Actual digits and the analytic parity residual}
+\label{sec:residual}
+
+The formal stream \code{piBits} is defined from
+$\operatorname{Re}P(1)$. The anchor in \eqref{eq:anchor} gives, for every
+$n\in\N$,
+\[
+ \text{\code{piBits}}(n)=b_n(\pi).
+\]
+This binds the subsequent word counts to the actual real number $\pi$.
+
+For a binary stream $b$ and a real step sequence $a=(a_j)_{j\ge0}$,
+define
+\begin{equation}
+ S_b(m)=\sum_{j<m}(b_{2j}-b_{2j+1}),\qquad
+ A(m)=\sum_{j<m}a_j,\qquad E_{b,a}(m)=S_b(m)-A(m).
+ \label{eq:residual}
+\end{equation}
+For the analytic specialization, the step is
+\begin{equation}
+ a_j=
+ \begin{cases}
+ 0,&j<512,\\
+ \delta(2j)+\delta(2j+1),&j\ge512.
+ \end{cases}
+ \label{eq:analyticstep}
+\end{equation}
+The cutoff avoids zero denominators and retains the original dyadic
+scale convention. Lemma~\ref{lem:delta} implies
+$0\le a_j\le1/2$ for every $j$.
+We abbreviate $E_{b(\pi),a}$ by $E_\pi$.
+
+The analytic drift is also quantitatively close to its harmonic
+approximation. Put $h_j=0$ for $j<512$ and
+$h_j=1/(8j)+1/[4(2j+1)]$ otherwise.
+The source proves
+\begin{equation}
+ 0\le\sum_{j<m}h_j-A(m)
+ \le \frac1{2048}-\frac1{4\max(m,512)}
+ \le\frac1{2048}.
+ \label{eq:harmonic}
+\end{equation}
+Indeed, \eqref{eq:deltabounds} gives the scalar estimate
+\[
+ 0\le\frac1{4M}-\delta(M)
+ \le\frac12\left(\frac1M-\frac1{M+1}\right).
+\]
+Adding it at $M=2j$ and $M=2j+1$ bounds the step error by
+$1/(4j)-1/[4(j+1)]$, and the sum telescopes.
+This controls two analytic sequences. It does not bound the residual
+of either sequence against the actual parity sum $S_{b(\pi)}$.
+
+\section{A finite alternating-word inequality}
+\label{sec:finite}
+
+For any residual $E$ and $N\ge1$, define its empirical tail by
+\begin{equation}
+ T_E(h,N)=\frac1N\#\{0\le j<N:|E(j)|\ge h\}.
+ \label{eq:tail}
+\end{equation}
+For $r\in\N$, let $u_r=(01)^r0$ and $v_r=(10)^r1$, and write
+\begin{equation}
+ F_M^b(r)=f_M^b(u_r)+f_M^b(v_r).
+ \label{eq:altfreq}
+\end{equation}
+The words are distinct, including when $r=0$.
+
+\begin{lemma}[Alternation forces a residual excursion]
+\label{lem:excursion}
+Suppose $0\le a_j\le1/2$ for all $j$.
+If the $r$ pairs starting at pair index $j$ are all $01$, or are all
+$10$, then
+\begin{equation}
+ |E_{b,a}(j)|+|E_{b,a}(j+r)|\ge r/2.
+ \label{eq:excursion}
+\end{equation}
+In particular, at least one of the two endpoint magnitudes is at
+least $r/4$.
+\end{lemma}
+\begin{proof}
+Across the block, $S_b(j+r)-S_b(j)$ is $-r$ or $r$,
+while $A(j+r)-A(j)\in[0,r/2]$.
+Thus $|E_{b,a}(j+r)-E_{b,a}(j)|\ge r/2$.
+The triangle inequality gives \eqref{eq:excursion};
+if both endpoints had magnitude less than $r/4$, it would fail.
+\end{proof}
+
+\begin{theorem}[Finite ordinary-frequency bound]
+\label{thm:finite}
+For every binary stream $b$, every step sequence satisfying
+$0\le a_j\le1/2$, every $r\in\N$, and every $N\ge1$,
+\begin{equation}
+ \boxed{\displaystyle
+ F_{2N}^b(r)\le
+ 2T_{E_{b,a}}(r/4,N)+\frac{r+1/2}{N}.}
+ \label{eq:finite}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Let $I_j$ be the indicator that the $r$ pairs beginning at pair index
+$j$ have one of the two constant alternating orientations, and put
+$K=\sum_{j<N}I_j$. Set
+$q_j=\ind_{\{|E_{b,a}(j)|\ge r/4\}}$ and $B=\sum_{j<N}q_j$.
+Lemma~\ref{lem:excursion} gives $I_j\le q_j+q_{j+r}$.
+For every sequence $g_j\in[0,1]$,
+\[
+ \sum_{j<N}g_{j+r}\le\sum_{j<N}g_j+r.
+\]
+This follows by comparing the two shifted finite sums; at most $r$
+new terms, each at most $1$, are added.
+Consequently $K\le2B+r$.
+
+An occurrence of either length-$2r+1$ alternating word at the even
+start $2j$ implies $I_j=1$; an occurrence at the odd start $2j+1$
+implies $I_{j+1}=1$. The words are distinct, so their combined
+indicator at one starting position is at most $1$.
+Summing over the $2N$ starts therefore gives
+\[
+ 2N F_{2N}^b(r)
+ \le\sum_{j<N}(I_j+I_{j+1})
+ \le2K+1\le4B+2r+1.
+\]
+Division by $2N$ proves \eqref{eq:finite}.
+The $1/(2N)$ term accounts explicitly for the final shifted start.
+\end{proof}
+
+Substitution of \eqref{eq:analyticstep} and $b=b(\pi)$ yields
+\eqref{eq:mainpreview}. The source declaration is
+\code{PI_ALTERNATING_FREQUENCY_TAIL_BOUND}.
+No analytic or digit-identification hypothesis remains in that
+specialization; the tail itself is still an unevaluated quantity.
+
+\section{The conditional non-normality endpoint}
+\label{sec:closure}
+
+\begin{theorem}[A small residual tail excludes normality]
+\label{thm:closure}
+Suppose $0\le a_j\le1/2$ for every $j$. If there exist a fixed
+$r\in\N$, a real $\eta$, and $N_0\in\N$ such that
+\begin{equation}
+ 2\eta<4^{-r},\qquad
+ T_{E_{b,a}}(r/4,N)\le\eta
+ \quad\hbox{for all }N\ge\max(1,N_0),
+ \label{eq:open}
+\end{equation}
+then $b$ is not binary normal.
+\end{theorem}
+\begin{proof}
+If $b$ were normal, each of the two fixed words of length $2r+1$
+would have frequency tending to $2^{-(2r+1)}$. Hence
+$F_{2N}^b(r)\to4^{-r}$.
+Theorem~\ref{thm:finite} and \eqref{eq:open} give, eventually,
+\[
+ F_{2N}^b(r)\le2\eta+\frac{r+1/2}{N}.
+\]
+Taking limits yields $4^{-r}\le2\eta$, a contradiction.
+\end{proof}
+
+\begin{corollary}[The actual-$\pi$ endpoint]
+\label{cor:pi}
+If \eqref{eq:open} holds for the residual $E_\pi$ from
+\eqref{eq:analyticstep}, then $\neg\Normal(\pi)$.
+\end{corollary}
+\begin{proof}
+The analytic step bounds and the identification of \code{piBits}
+with \eqref{eq:bits} are already proved. Apply
+Theorem~\ref{thm:closure}.
+\end{proof}
+
+This is the precise conditional result recorded by
+\code{PI_NOT_NORMAL_OF_SMALL_ANALYTIC_RESIDUAL_TAIL}.
+The eventual estimate \eqref{eq:open} has not been established for
+$E_\pi$ in this repository.
+For a nonvacuous search one may take $r\ge1$ and $\eta\ge0$.
+The formal theorem does not need those extra assumptions:
+when $r=0$, the threshold is zero and $T_E(0,N)=1$ for $N>0$,
+so \eqref{eq:open} cannot hold. A negative $\eta$ is likewise
+incompatible with an eventual nonnegative tail.
+
+The quantifier order is essential. One chooses a single word length,
+a single positive gap $4^{-r}-2\eta$, and then proves a bound for
+every sufficiently large sample size. Letting $r$ grow with $N$,
+or observing a deficit in a finite computation, does not establish
+this hypothesis. The theorem is a sufficient criterion, not a claimed
+characterization of all non-normal streams.
+
+\section{What the coefficient does and does not supply}
+\label{sec:limits}
+
+\begin{proposition}[Cancellation and fixed-length analytic mass]
+\label{prop:mass}
+For $L\in\N$ and $M>0$,
+\begin{align}
+ C_t+C_{t+1}&=0,&
+ \sum_{t<L}C_t&=\frac{1-(-1)^L}{8},&
+ \sum_{t<L}(-1)^tC_t&=\frac L4, \label{eq:cancel}\\
+ 0\le\sum_{t<L}\delta(M+t)&\le\frac{L}{4M}.
+ \label{eq:mass}
+\end{align}
+\end{proposition}
+\begin{proof}
+The first line is the finite geometric sum of the signed values
+in \eqref{eq:Ct}; multiplying each term by $(-1)^t$ gives $1/4$.
+For the second line, Lemma~\ref{lem:delta} gives
+$0\le\delta(M+t)\le1/[4(M+t)]\le1/(4M)$; sum over $t<L$.
+\end{proof}
+
+Thus the aligned coefficient sum grows with $L$, but its actual
+unscaled analytic correction retains a denominator. At each fixed
+$L$, the right-hand side of \eqref{eq:mass} tends to zero as
+$M\to\infty$.
+The formal analytic word-product model makes this distinction
+quantitative. For arbitrary fixed signs $\sigma_k\in\{-1,1\}$,
+\begin{equation}
+ \left|\prod_{k<L}\bigl(\tfrac12+\sigma_k\delta(n+k+1)\bigr)
+          -2^{-L}\right|\le\frac{L}{4(n+1)}.
+ \label{eq:product}
+\end{equation}
+Each factor lies in $[0,1]$ and differs from $1/2$ by at most
+$1/[4(n+1)]$; expanding the difference of products, or inducting
+on $L$, gives the bound. These analytic products and their
+Ces\`aro averages converge to $2^{-L}$ at fixed $L$.
+They have not been identified with actual digit frequencies.
+
+Likewise, fixed-offset convergence in Theorem~\ref{thm:coefficient}
+is not uniform in all offsets. The historical uniform-tracking
+branch instead uses the physical scaling
+$(N_a+t)\delta(N_a+t)$.
+Neither choice of scaling constructs a finite observation of the
+actual digit stream merely by defining an analytic formula.
+
+\section{Historical routes and verification boundary}
+\label{sec:verification}
+
+The repository preserves seven historical developments alongside the
+primary \code{PI_DYADIC_CT_v0_7_0} project.
+Their module roots are isolated because several reuse the same Lean
+module names for different definitions. Three distinctions matter
+when interpreting their conditional endpoints.
+
+First, a finite-observation route asks for an observable determined by
+a fixed finite word of the actual stream at each scale and tracking
+the alternating coefficient uniformly in the starting position.
+Its formal frontier is equivalent to the existence of one word width
+that determines start parity at every position. This digit property
+remains an explicit hypothesis.
+
+Second, the exact-obstruction branch defines a proposition
+$\operatorname{Ct}(w)$ as failure of the fair-frequency limit for
+the word $w$. Its equivalence
+$\exists w\,\operatorname{Ct}(w)\ \Longleftrightarrow\ \neg\Normal(\pi)$
+is a logical reformulation of the target.
+The proposition $\operatorname{Ct}(w)$ is not the real coefficient
+$C_t$, and the equivalence supplies no word witness.
+
+Third, the legacy Part B address condition requires
+$2j=2^{10+a(j)}+t(j)$ for every $j\in\N$.
+At $j=0$ this is impossible. The separate audited declaration
+\code{ANCHOPI.PartB.Audit.ctDigitBridge_impossible} records that
+obstruction; the associated historical wrapper is vacuous.
+The generic bounded-remainder argument is a different result,
+and the later eventual-address formulation removes this particular
+zero-index obstruction.
+
+\subsection{A fixed, reproducible verification baseline}
+
+This manuscript describes source commit
+\begin{center}\small\url{1ce84cb63dc48e43ed92901c29a60f6d07ed4d9b}\end{center}
+of \repo. Its GitHub Actions run
+\href{https://github.com/randogelist/PI_NOT_NORMAL_BASE_2/actions/runs/40175464758}{40175464758}
+completed successfully on 25 October 2026.
+The preceding run
+\href{https://github.com/randogelist/PI_NOT_NORMAL_BASE_2/actions/runs/40174579963}{40174579963}
+freshly compiled all 71 modules; the baseline run reused all 71 only
+after source, dependency, compiler, and output fingerprint checks,
+and reran every declaration audit.
+No Lean compilation for this verification baseline was delegated to
+a local manuscript-building process.
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+Project root & Modules & Audited declarations\\
+\midrule
+Primary \code{PiCt} & 28 & 582\\
+\code{branches/exact-obstruction} & 6 & 112\\
+\code{branches/explicit-frontier} & 4 & 185\\
+\code{branches/full-closure} & 14 & 267\\
+\code{branches/part-a} & 3 & 69\\
+\code{branches/part-b} & 5 & 175\\
+\code{branches/reconstructed} & 5 & 256\\
+\code{branches/single-hypothesis} & 6 & 113\\
+\midrule
+Total & 71 & 1,759\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Lean is pinned to version 4.33.0 and Mathlib to
+\begin{center}\small\url{db584cd6d46c92f209a44c0f1c829460d327499d}.\end{center}
+The hosted workflow checks the official Lean archive checksum, tests
+rejection of unsupported assumptions, and audits transitive axiom
+dependencies of project declarations. Its allowed axioms are
+\code{propext}, \code{Classical.choice}, and \code{Quot.sound};
+\code{sorryAx} and project research axioms are rejected.
+The count above includes definitions and generated declarations;
+it is not a count of 1,759 independent mathematical theorems.
+
+The verification receipt and exact run identities are recorded in
+\code{paper/verification-baseline.json}. The theorem map below links
+the mathematical statements to the checked sources. Lean verifies
+those declarations, rather than the typography or every sentence
+of this exposition. In particular, compilation of an implication
+does not prove its research premise.
+The older Gregory/BETA9/AZETON continuation preserved in
+\code{provenance/PI_CT_SOURCE_RESEARCH_v1.tex} is paper-level work
+and is outside this manuscript's asserted Lean result set.
+
+\appendix
+\section{Statement-to-source map}
+\label{sec:map}
+
+Paths below are relative to the verified repository snapshot~\cite{repo}.
+The complete qualified identifiers and machine-readable correspondence
+are also recorded in \code{paper/theorem-map.json}.
+
+\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.27\textwidth}>{\raggedright\arraybackslash}p{.68\textwidth}@{}}
+\toprule
+Statement & Source module and principal declaration\\
+\midrule
+\endfirsthead
+\toprule
+Statement & Source module and principal declaration\\
+\midrule
+\endhead
+Anchor and ray readout &
+\code{PiCt/Representative.lean}\newline
+\code{primitive_one}, \code{primitive_ray_im},
+\code{splitReadout_eq_half_add_delta}\\[5pt]
+Lemma~\ref{lem:delta} &
+\code{PiCt/LogCore.lean}\newline
+\code{delta_bounds}, \code{scaled_bounds}\\[5pt]
+Theorem~\ref{thm:coefficient} &
+\code{PiCt/Instance.lean}\newline
+\code{PI_CT_INSTANTIATED}, \code{PI_CT_VALUE},
+\code{PI_CT_NE_ZERO}, \code{PI_CT_REMAINDER},
+\code{PI_CT_CAUCHY}, \code{PI_CT_UNIQUE};
+\code{PiCt/Dyadic.lean}: \code{coefficient_error}\\[5pt]
+Actual digits and normality &
+\code{PiCt/BinaryWords.lean}\newline
+\code{piBits_eq}, \code{BinaryNormal}\\[5pt]
+Equation~\eqref{eq:harmonic} &
+\code{PiCt/AnalyticDrift.lean}\newline
+\code{drift_error_tight}, \code{drift_error}\\[5pt]
+Lemma~\ref{lem:excursion} &
+\code{PiCt/AlternatingExcursions.lean}\newline
+\code{residual_excursion}, \code{alternating_endpoint_tail}\\[5pt]
+Theorem~\ref{thm:finite} &
+\code{PiCt/AlternatingTailClosure.lean}\newline
+\code{totalFreq_le_residual_tail}\\[5pt]
+Actual-$\pi$ finite bound &
+\code{PiCt/AlternatingTailClosure.lean}\newline
+\code{PI_ALTERNATING_FREQUENCY_TAIL_BOUND}\\[5pt]
+Theorem~\ref{thm:closure} and Corollary~\ref{cor:pi} &
+\code{PiCt/AlternatingTailClosure.lean}\newline
+\code{not_normal_of_eventually_small_residual_tail},
+\code{PI_NOT_NORMAL_OF_SMALL_ANALYTIC_RESIDUAL_TAIL}\\[5pt]
+Proposition~\ref{prop:mass} &
+\code{PiCt/CoefficientAccumulation.lean}\newline
+\code{C_adjacent_cancel}, \code{C_prefix_sum},
+\code{C_aligned_prefix_sum}, \code{blockMass_bounds}\\[5pt]
+Equation~\eqref{eq:product} &
+\code{PiCt/AnalyticWordProduct.lean}\newline
+\code{wordProduct_error}, \code{wordProduct_fixed_length_limit},
+\code{wordProduct_average_limit}\\
+\bottomrule
+\end{longtable}
+\normalsize
+
+\begin{thebibliography}{9}
+\bibitem{repo}
+\textit{PI\_NOT\_NORMAL\_BASE\_2}.
+Source snapshot \code{1ce84cb6}, 25 October 2026.
+\href{https://github.com/randogelist/PI_NOT_NORMAL_BASE_2/tree/1ce84cb63dc48e43ed92901c29a60f6d07ed4d9b}{GitHub source snapshot}.
+
+\bibitem{primary}
+\textit{PI\_DYADIC\_CT\_v0\_7\_0}.
+Recovered primary source package, 23 October 2026.
+Its source identities, original hashes, and import adaptations are
+preserved in the repository's \code{provenance/} directory.
+
+\bibitem{ci}
+\textit{Lean $C_t$ verification}.
+GitHub Actions runs 40174579963 and 40175464758,
+25 October 2026. Exact artifact digests and project counts are
+retained in \code{paper/verification-baseline.json}.
+
+\bibitem{frontier}
+\textit{Proof frontier} and \textit{Source audit}.
+Repository documents \code{docs/PROOF_FRONTIER.md} and
+\code{docs/SOURCE_AUDIT.md}, at the source snapshot in~\cite{repo}.
+\end{thebibliography}
+\end{document}

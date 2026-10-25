@@ -1,0 +1,165 @@
+{
+  "manuscript": "The C_t Route toward Binary Non-Normality of Pi",
+  "version": "1",
+  "date": "2026-10-25",
+  "repository": "randogelist/PI_NOT_NORMAL_BASE_2",
+  "verified_code_commit": "1ce84cb63dc48e43ed92901c29a60f6d07ed4d9b",
+  "status": "PASS",
+  "execution_location": "GITHUB_ACTIONS_ONLY",
+  "verification_run": {
+    "id": 40175464758,
+    "url": "https://github.com/randogelist/PI_NOT_NORMAL_BASE_2/actions/runs/40175464758",
+    "artifact_id": 12592230516,
+    "artifact_sha256": "841d357d5855ca54b0f4169a16abde3139724799084c497bb84b78d07affd73e"
+  },
+  "fresh_compilation_run": {
+    "commit": "792ffaad5897bf44ba1d271b8528c4b52d16cb8b",
+    "id": 40174579963,
+    "url": "https://github.com/randogelist/PI_NOT_NORMAL_BASE_2/actions/runs/40174579963",
+    "artifact_id": 12591833201,
+    "artifact_sha256": "d0a60ac5d171a7bfd7e1a018b9e5a6831517ff960f245ecd008c4d92737dde8d",
+    "freshly_compiled_modules": 71
+  },
+  "receipt_sha256": "bd37c3822c532793d1b868ce1e705c18289f3a45f5a394c54fe2d72f1f616a12",
+  "environment": {
+    "lean_version": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+    "lean_executable_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+    "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+    "external_fingerprint": "79a05d8237d694948e4834e1c192c11ab97a525cc7a150dfd98daa27395512aa",
+    "flags": [
+      "-j1",
+      "-DmaxRecDepth=4096",
+      "-DmaxHeartbeats=0"
+    ],
+    "lean_native_executable_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+    "platform": "linux",
+    "verifier_sha256": "65ff4a058b60f6d94915eda7914706be7142327eb43677839608ef69ab2da50c",
+    "audit_template_sha256": "a4ec276aa939517559cfc592998c1e8beed9dcc924831011676493aaec6be3cd"
+  },
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "projects": {
+    "primary": {
+      "status": "PASS",
+      "module_count": 28,
+      "declaration_count": 582,
+      "axiom_union": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "exact-obstruction": {
+      "status": "PASS",
+      "module_count": 6,
+      "declaration_count": 112,
+      "axiom_union": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "explicit-frontier": {
+      "status": "PASS",
+      "module_count": 4,
+      "declaration_count": 185,
+      "axiom_union": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "full-closure": {
+      "status": "PASS",
+      "module_count": 14,
+      "declaration_count": 267,
+      "axiom_union": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "part-a": {
+      "status": "PASS",
+      "module_count": 3,
+      "declaration_count": 69,
+      "axiom_union": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "part-b": {
+      "status": "PASS",
+      "module_count": 5,
+      "declaration_count": 175,
+      "axiom_union": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "reconstructed": {
+      "status": "PASS",
+      "module_count": 5,
+      "declaration_count": 256,
+      "axiom_union": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "single-hypothesis": {
+      "status": "PASS",
+      "module_count": 6,
+      "declaration_count": 113,
+      "axiom_union": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "totals": {
+    "projects": 8,
+    "modules": 71,
+    "audited_declarations": 1759,
+    "compiled_in_baseline_run": 0,
+    "fingerprint_reused_in_baseline_run": 71
+  },
+  "pi_not_normal_unconditional": false,
+  "open_input": "An eventual tail bound T_E_pi(r/4,N) <= eta for a fixed r, with 2*eta < 4^(-r).",
+  "primary_lean_sources": {
+    "PiCt/LogCore.lean": "6ec50e4f0a637588cb744868217853adf6ed9c9da9383c5ef7f45983991fbdd9",
+    "PiCt/Dyadic.lean": "93c3fb4ed601b8a138bf690219af54698c7ffd4f082d1d800ad398b00405c17a",
+    "PiCt/Representative.lean": "2d2ac219e37bcdccecac45cbc97d5ba2d35eac6e0fb17c82a07c5f84dceef063",
+    "PiCt/Endpoints.lean": "afbc529de4eb6343a6a4b4ba4448bc1a7f8dfab5520f797d6bc28a7fabdcff32",
+    "PiCt/Instance.lean": "aa8469db7f4123f568c393508b03ea1832d06094e5ee52a5f11ce928e1ad3612",
+    "PiCt/BinaryWords.lean": "9d818ff8d04598bcbd27d0312699003b9669edaa6e8b4bb89749bd75f5b67356",
+    "PiCt/ParityDrift.lean": "b3374e842817a4cad25261689abf4bc7bde52fba11092dc9a1a814f4a2d27db1",
+    "PiCt/AnalyticDrift.lean": "5ee810b2526fca883fd803ff39af8a79f381b3d26d885e69f86225a9b65d2e79",
+    "PiCt/RunFrequency.lean": "4e06c226c7cd8147e8e055ecdbdd0ad0d7d8161bc8a82a25f7003690994674dc",
+    "PiCt/DyadicParity.lean": "3bc878c59164e592166a3f7cc18655d28a758a9dbc06fc31eeb2c7cdcbd8aba0",
+    "PiCt/WordOccurrence.lean": "ebad10e1c7d214150758a04af9a2be0b5e90c621591cd7d30b93f20a909d23bb",
+    "PiCt/ParityClosure.lean": "7dd45bebddbf92d88ac986b2e89214c04404fa4de451d047952ac85abe30b55c",
+    "PiCt/ParityCounts.lean": "ecd4adacd03ab49fb5290094b2e57379702f5a2ba44139913c6c993e40ad9a2d",
+    "PiCt/AnalyticParityClosure.lean": "32c4dd84ccecb9743a5a5b7caba3966bcb6705220faaf956a348e3fe449afede",
+    "PiCt/AlternatingExcursions.lean": "b17f4ba90a039799ebdeca1c15adafe68e82e1e9f99a01019659b4398c16ac40",
+    "PiCt/AlternatingFrequency.lean": "bd79220ea14e04a51909d272259232285f47336cc6312f30bfd2e4e2201f367d",
+    "PiCt/AlternatingTailClosure.lean": "a6f17b131e2347dc6880893a234e04664d39cb6267c476fa202ee2b958f9324f",
+    "PiCt/AnalyticWordProduct.lean": "79dae6950d14abb709d8605e9016877583629e0ecc4f0c6f6b31da24fe28048f",
+    "PiCt/CoefficientAccumulation.lean": "8cc9a38e7083f1f063885e829319bfa65683879e43607c5bd64b01e8846b0818",
+    "PiCt/Drawdown.lean": "b6c493fc63357e836938c13ff7bedc743e5e6e2f58915ea854cf6064ef57f587",
+    "PiCt/FloorDigits.lean": "3e1e1d06be7696883e35e6cdd8a78de7e174869bde4525de9668e874d7902fb7",
+    "PiCt/MovingOffset.lean": "b0f97f505de7cc91329ec5a068dc1cea70a120625439ffa6dae6af62e9eeaf9e",
+    "PiCt/OrbitPotential.lean": "0df4569e60cb75f04a712791634df0688a141862e10953f8513c2d6227e11f4c",
+    "PiCt/ReadoutInvariant.lean": "dbdc96a63c6e409f35cc9b1b3916f1e72da0a1ed24f399379643cf392bbafe52",
+    "PiCt/ReflectedWalk.lean": "667cee9441c614a73f7e67e15f70d421ef8a985d6e889d1dac02fa9f1b27b136",
+    "PiCt/RunClosure.lean": "ed0a0c62a0a17b3c45fe012ccfea6406b39758d0696a8f2bee5596308c0ce6b9",
+    "PiCt/Usage.lean": "b232c08a661e2ecd9687b99727e6388b7eab4d1f65c5742ba98a40fdab313099",
+    "PiCtAudit.lean": "e355c8c41d55d19e9e784db13b7fcf38aa7ce0919cbfc9b176139532e648b800"
+  }
+}

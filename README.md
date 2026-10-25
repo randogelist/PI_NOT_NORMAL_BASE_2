@@ -6,6 +6,10 @@ This repository consolidates the recovered ANCHOPI and PI_DYADIC_CT Lean researc
 
 **This repository does not prove that π is non-normal.** The analytic coefficient is proved; a sufficient estimate about the actual binary digits of π remains open. A successful build certifies the precise conditional theorems in the sources.
 
+## Preprint
+
+[Read the preprint (PDF)](paper/pi_ct_preprint.pdf): **The C_t Route toward Binary Non-Normality of Pi: Formalized analytic progress and an explicit residual-tail criterion**. The [editable LaTeX source](paper/pi_ct_preprint.tex), [theorem map](paper/theorem-map.json), and [verified baseline](paper/verification-baseline.json) accompany it.
+
 ## Preserved C_t construction
 
 The primary branch is `PI_DYADIC_CT_v0_7_0`, using the representative

@@ -1,0 +1,135 @@
+{
+  "verified_code_commit": "1ce84cb63dc48e43ed92901c29a60f6d07ed4d9b",
+  "entries": [
+    {
+      "latex_label": "eq:anchor",
+      "source_path": "PiCt/Representative.lean",
+      "source_sha256": "2d2ac219e37bcdccecac45cbc97d5ba2d35eac6e0fb17c82a07c5f84dceef063",
+      "declarations": [
+        "PiCt.ComplexRepresentative.primitive_one",
+        "PiCt.ComplexRepresentative.primitive_hasSum",
+        "PiCt.ComplexRepresentative.primitive_ray_im",
+        "PiCt.ComplexRepresentative.splitReadout_eq_half_add_delta"
+      ]
+    },
+    {
+      "latex_label": "lem:delta",
+      "source_path": "PiCt/LogCore.lean",
+      "source_sha256": "6ec50e4f0a637588cb744868217853adf6ed9c9da9383c5ef7f45983991fbdd9",
+      "declarations": [
+        "PiCt.delta_bounds",
+        "PiCt.scaled_bounds"
+      ]
+    },
+    {
+      "latex_label": "thm:coefficient",
+      "source_path": "PiCt/Instance.lean",
+      "source_sha256": "aa8469db7f4123f568c393508b03ea1832d06094e5ee52a5f11ce928e1ad3612",
+      "declarations": [
+        "PiCt.PI_CT_INSTANTIATED",
+        "PiCt.PI_CT_VALUE",
+        "PiCt.PI_CT_NE_ZERO",
+        "PiCt.PI_CT_REMAINDER",
+        "PiCt.PI_CT_CAUCHY",
+        "PiCt.PI_CT_UNIQUE"
+      ]
+    },
+    {
+      "latex_label": "eq:Cerror",
+      "source_path": "PiCt/Dyadic.lean",
+      "source_sha256": "93c3fb4ed601b8a138bf690219af54698c7ffd4f082d1d800ad398b00405c17a",
+      "declarations": [
+        "PiCt.coefficient_error",
+        "PiCt.C_abs"
+      ]
+    },
+    {
+      "latex_label": "eq:bits",
+      "source_path": "PiCt/BinaryWords.lean",
+      "source_sha256": "9d818ff8d04598bcbd27d0312699003b9669edaa6e8b4bb89749bd75f5b67356",
+      "declarations": [
+        "PiCt.BinaryWords.bit",
+        "PiCt.BinaryWords.piBits_eq",
+        "PiCt.BinaryWords.BinaryNormal"
+      ]
+    },
+    {
+      "latex_label": "eq:harmonic",
+      "source_path": "PiCt/AnalyticDrift.lean",
+      "source_sha256": "5ee810b2526fca883fd803ff39af8a79f381b3d26d885e69f86225a9b65d2e79",
+      "declarations": [
+        "PiCt.AnalyticDrift.drift_error_tight",
+        "PiCt.AnalyticDrift.drift_error"
+      ]
+    },
+    {
+      "latex_label": "lem:excursion",
+      "source_path": "PiCt/AlternatingExcursions.lean",
+      "source_sha256": "b17f4ba90a039799ebdeca1c15adafe68e82e1e9f99a01019659b4398c16ac40",
+      "declarations": [
+        "PiCt.AlternatingExcursions.residual_excursion",
+        "PiCt.AlternatingExcursions.alternating_endpoint_tail",
+        "PiCt.AlternatingExcursions.aligned_count_le_tail",
+        "PiCt.AlternatingExcursions.analyticStep_bounds"
+      ]
+    },
+    {
+      "latex_label": "thm:finite",
+      "source_path": "PiCt/AlternatingTailClosure.lean",
+      "source_sha256": "a6f17b131e2347dc6880893a234e04664d39cb6267c476fa202ee2b958f9324f",
+      "declarations": [
+        "PiCt.AlternatingTailClosure.ordinary_count_le_aligned",
+        "PiCt.AlternatingTailClosure.totalFreq_le_residual_tail",
+        "PiCt.AlternatingTailClosure.PI_ALTERNATING_FREQUENCY_TAIL_BOUND"
+      ]
+    },
+    {
+      "latex_label": "thm:closure",
+      "source_path": "PiCt/AlternatingTailClosure.lean",
+      "source_sha256": "a6f17b131e2347dc6880893a234e04664d39cb6267c476fa202ee2b958f9324f",
+      "declarations": [
+        "PiCt.AlternatingTailClosure.normal_odd_alternating_target",
+        "PiCt.AlternatingTailClosure.not_normal_of_eventually_small_residual_tail"
+      ]
+    },
+    {
+      "latex_label": "cor:pi",
+      "source_path": "PiCt/AlternatingTailClosure.lean",
+      "source_sha256": "a6f17b131e2347dc6880893a234e04664d39cb6267c476fa202ee2b958f9324f",
+      "declarations": [
+        "PiCt.AlternatingTailClosure.PI_NOT_NORMAL_OF_SMALL_ANALYTIC_RESIDUAL_TAIL"
+      ]
+    },
+    {
+      "latex_label": "prop:mass",
+      "source_path": "PiCt/CoefficientAccumulation.lean",
+      "source_sha256": "8cc9a38e7083f1f063885e829319bfa65683879e43607c5bd64b01e8846b0818",
+      "declarations": [
+        "PiCt.CoefficientAccumulation.C_adjacent_cancel",
+        "PiCt.CoefficientAccumulation.C_prefix_sum",
+        "PiCt.CoefficientAccumulation.C_aligned_prefix_sum",
+        "PiCt.CoefficientAccumulation.blockMass_bounds",
+        "PiCt.CoefficientAccumulation.fixed_length_mass_tendsto_zero"
+      ]
+    },
+    {
+      "latex_label": "eq:product",
+      "source_path": "PiCt/AnalyticWordProduct.lean",
+      "source_sha256": "79dae6950d14abb709d8605e9016877583629e0ecc4f0c6f6b31da24fe28048f",
+      "declarations": [
+        "PiCt.AnalyticWordProduct.wordProduct_error",
+        "PiCt.AnalyticWordProduct.wordProduct_fixed_length_limit",
+        "PiCt.AnalyticWordProduct.wordProduct_average_limit"
+      ]
+    },
+    {
+      "latex_label": "sec:verification",
+      "source_path": "branches/part-b/AuditFindings.lean",
+      "source_sha256": "17ca0ae3154686e564e885c231c0cb740b592938a6a61842eef54e30f1053aeb",
+      "declarations": [
+        "ANCHOPI.PartB.Audit.ctDigitBridge_impossible"
+      ]
+    }
+  ],
+  "scope": "Expository correspondence to declarations checked by hosted Lean CI. Prose and PDF typesetting are not Lean proof objects."
+}
